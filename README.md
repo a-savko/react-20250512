@@ -22,6 +22,8 @@ It also includes an introduction to framework Next.js, and application optimizat
 
 A restaurant selection and food ordering service built using two approaches: based on the Next.js framework and using React + Redux + React Router + Vite.
 
+Note: The app entry point is `src/main.jsx`, and the React app mounts to the `div` with id `root` in `index.html`.
+
 ## Prerequisites
 
 - Node.js (<https://nodejs.org/en/>)
@@ -46,13 +48,13 @@ yarn install
 To start the development server, run:
 
 ```bash
-npm start
+npm run dev
 ```
 
 or with yarn:
 
 ```bash
-yarn start
+yarn dev
 ```
 
 This will launch the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -71,7 +73,19 @@ or with yarn:
 yarn build
 ```
 
-This will create a `build` folder with the production build of the app.
+This will create a `dist` folder with the production build of the app.
+
+To preview the production build locally, run:
+
+```bash
+npm run preview
+```
+
+or with yarn:
+
+```bash
+yarn preview
+```
 
 ## Folder Structure
 
@@ -80,9 +94,12 @@ This will create a `build` folder with the production build of the app.
 
 ## Available Scripts
 
-- `npm start` - Runs the app in development mode
+- `npm run dev` - Runs the app in development mode
 - `npm run build` - Builds the app for production
+- `npm run preview` - Previews the production build locally
+- `npm run lint` - Runs ESLint to check code quality
 
 ## Additional Resources
 
-- React documentation: <https://react.dev/learn>
+- [React documentation](https://react.dev/learn)
+- [Материалы для обучения. Курс по React 12.05](https://learn.javascript.ru/courses/groups/react-20250512/materials)
