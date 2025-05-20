@@ -1,9 +1,9 @@
 export const Layout = ({ children }) => {
   return (
     <>
-      <header>Header</header>
+      <header style={{ textAlign: 'center' }}>Header</header>
       {children}
-      <footer>Footer</footer>
+      <footer style={{ textAlign: 'center' }}>Footer</footer>
     </>
   );
 };
