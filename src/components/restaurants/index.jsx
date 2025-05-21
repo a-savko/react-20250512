@@ -1,12 +1,11 @@
 import 'react-tabs/style/react-tabs.css';
 import { TabList, Tabs, Tab, TabPanel } from 'react-tabs';
-import { Menu } from '../menu';
-import { Reviews } from '../reviews';
+import { Restaurant } from './restaurant';
 
 export const Restaurants = ({ restaurants }) => {
   return (
     <div className='restaurants'>
-      <Tabs>
+      <Tabs forceRenderTabPanel>
         <TabList>
           {restaurants.map(({ id, name }) => {
             return <Tab key={id}>{name}</Tab>;
@@ -15,8 +14,7 @@ export const Restaurants = ({ restaurants }) => {
         {restaurants.map(({ id, menu, reviews }) => {
           return (
             <TabPanel key={id}>
-              <Menu menuItems={menu}></Menu>
-              <Reviews reviews={reviews}></Reviews>
+              <Restaurant menu={menu} reviews={reviews}></Restaurant>
             </TabPanel>
           );
         })}
