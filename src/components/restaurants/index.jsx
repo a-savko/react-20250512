@@ -1,22 +1,16 @@
-import 'react-tabs/style/react-tabs.css';
-import { TabList, Tabs, Tab, TabPanel } from 'react-tabs';
 import { Restaurant } from './restaurant';
+import { Tabs } from '../common/tab';
 
 export const Restaurants = ({ restaurants }) => {
   return (
     <div className='restaurants'>
-      <Tabs forceRenderTabPanel>
-        <TabList>
-          {restaurants.map(({ id, name }) => {
-            return <Tab key={id}>{name}</Tab>;
-          })}
-        </TabList>
-        {restaurants.map(({ id, menu, reviews }) => {
-          return (
-            <TabPanel key={id}>
-              <Restaurant menu={menu} reviews={reviews}></Restaurant>
-            </TabPanel>
-          );
+      <Tabs>
+        {restaurants.map(({ id, name, menu, reviews }) => {
+          return {
+            id,
+            title: name,
+            content: <Restaurant menu={menu} reviews={reviews} />,
+          };
         })}
       </Tabs>
     </div>
