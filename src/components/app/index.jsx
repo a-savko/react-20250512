@@ -5,7 +5,7 @@ import { restaurants } from '/data/mock';
 export const App = () => {
   return (
     <Layout>
-      <Restaurants restaurants={restaurants}></Restaurants>
+      <Restaurants restaurants={restaurants} />
     </Layout>
   );
 };
