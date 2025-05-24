@@ -12,14 +12,12 @@ function onTabClick(event, callback) {
 }
 
 export const Tabs = ({ children }) => {
-  const [activeTabId, setActiveTabId] = useState();
+  const defaultTabId = children[0]?.id;
+  const [activeTabId, setActiveTabId] = useState(defaultTabId);
 
   if (!children || !children.length) {
     return <>no data</>;
   }
-
-  const defaultTabId = children[0].id;
-  setActiveTabId(defaultTabId);
 
   return (
     <>
