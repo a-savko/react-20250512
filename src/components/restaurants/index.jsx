@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Restaurant } from './restaurant';
 import { TabButton } from './tab-button';
+import { NoData } from '../common/no-data';
 
 export const Restaurants = ({ restaurants }) => {
   const defaultTabId = restaurants[0]?.id;
   const [activeTabId, setActiveTabId] = useState(defaultTabId);
 
-  if (!restaurants || !restaurants.length) {
-    return <>no data</>;
+  if (!restaurants || restaurants.length < 1) {
+    return <NoData />;
   }
   const activeRestaurant = restaurants.find(({ id }) => id === activeTabId);
 
