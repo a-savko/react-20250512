@@ -28,6 +28,7 @@ export const Restaurants = ({ restaurants }) => {
 
       <div className='tab-content'>
         <Restaurant
+          id={activeRestaurant.id}
           menu={activeRestaurant.menu}
           reviews={activeRestaurant.reviews}
         />
