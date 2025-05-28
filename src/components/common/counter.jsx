@@ -1,8 +1,4 @@
-import { useCount } from '../../hooks/use-count';
-
-export const Counter = () => {
-  const { count, onDecrement, onIncrement } = useCount();
-
+export const Counter = ({ count, onDecrement, onIncrement }) => {
   return (
     <span>
       <button onClick={onDecrement}>-</button>
