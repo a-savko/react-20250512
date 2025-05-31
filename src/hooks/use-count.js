@@ -1,18 +1,15 @@
 import { useState } from "react";
 
-const MIN_COUNT = 0;
-const MAX_COUNT = 5;
-
-export const useCount = () => {
-    const [count, setCount] = useState(0);
+export const useCount = (minCount = 0, maxCount = 5) => {
+    const [count, setCount] = useState(minCount);
 
     const onDecrement = () => {
-        if (count > MIN_COUNT) {
+        if (count > minCount) {
             setCount(count - 1);
         }
     };
     const onIncrement = () => {
-        if (count < MAX_COUNT) {
+        if (count < maxCount) {
             setCount(count + 1);
         }
     };

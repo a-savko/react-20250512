@@ -1,11 +1,11 @@
 import { Menu } from '../menu';
 import { Reviews } from '../reviews';
 
-export const Restaurant = ({ menu, reviews }) => {
+export const Restaurant = ({ id, menu, reviews }) => {
   return (
     <>
       <Menu menuItems={menu} />
-      <Reviews reviews={reviews} />
+      <Reviews restaurantId={id} reviews={reviews} />
     </>
   );
 };

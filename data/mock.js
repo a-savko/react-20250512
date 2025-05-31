@@ -139,4 +139,12 @@ export const restaurants = [
             },
         ],
     },
+    {
+        id: "d9241927-90e1-44f3-1111-a76346869037",
+        name: "No data Rest",
+        menu: [
+        ],
+        reviews: [
+        ],
+    },
 ];

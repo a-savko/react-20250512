@@ -1,14 +1,23 @@
+import { NoData } from '../common/no-data';
 import { Review } from './review';
+import { ReviewForm } from './review-form';
 
-export const Reviews = ({ reviews }) => {
+export const Reviews = ({ restaurantId, reviews }) => {
   return (
     <div className='reviews'>
       <h3>Reviews</h3>
-      <ul>
-        {reviews.map(({ id, text }) => (
-          <Review key={id} text={text} />
-        ))}
-      </ul>
+      {reviews && reviews.length > 0 ? (
+        <div>
+          <ul>
+            {reviews.map(({ id, text }) => (
+              <Review key={id} text={text} />
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <NoData />
+      )}
+      <ReviewForm restaurantId={restaurantId} />
     </div>
   );
 };
