@@ -1,5 +1,5 @@
 import { Layout } from '../_layout';
-import { Restaurants } from '../restaurants';
+import { Restaurants } from '../../pages/restaurants';
 import { restaurants } from '/data/mock';
 
 export const App = () => {

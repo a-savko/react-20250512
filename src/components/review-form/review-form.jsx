@@ -1,4 +1,4 @@
-import { Counter } from '../common/counter';
+import { Counter } from '../counters/counter';
 import { useReviewForm } from './use-review-form';
 
 export const ReviewForm = ({ restaurantId }) => {

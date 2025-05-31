@@ -1,4 +1,4 @@
-import { DishCounter } from '../restaurants/dish-counter';
+import { DishCounter } from '../counters/dish-counter';
 
 export const MenuItem = ({ name }) => {
   return (

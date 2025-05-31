@@ -1,5 +1,5 @@
 import { NoData } from '../common/no-data';
-import { MenuItem } from './menuItem';
+import { MenuItem } from '../menu-item/menu-item';
 
 export const Menu = ({ menuItems }) => {
   return (

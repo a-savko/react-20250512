@@ -1,6 +1,6 @@
 import { NoData } from '../common/no-data';
-import { Review } from './review';
-import { ReviewForm } from './review-form';
+import { Review } from '../review-item/review-item';
+import { ReviewForm } from '../review-form/review-form';
 
 export const Reviews = ({ restaurantId, reviews }) => {
   return (

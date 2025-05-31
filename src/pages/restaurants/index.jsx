@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Restaurant } from './restaurant';
-import { TabButton } from './tab-button';
-import { NoData } from '../common/no-data';
+import { Restaurant } from '../../components/restaurant-item/restaurant-item';
+import { TabButton } from '../../components/buttons/tab-button/tab-button';
+import { NoData } from '../../components/common/no-data';
 
 export const Restaurants = ({ restaurants }) => {
   const defaultTabId = restaurants[0]?.id;
