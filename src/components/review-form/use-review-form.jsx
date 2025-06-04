@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useReducer } from 'react';
 
 const MIN_RATING = 1;
 const MAX_RATING = 5;
@@ -38,7 +38,7 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-export const useReviewForm = (restaurantId) => {
+export const useReviewForm = () => {
   const [reviewForm, dispatch] = useReducer(reducer, INITIAL_FORM);
 
   const onNameChange = (name) => {
@@ -68,10 +68,6 @@ export const useReviewForm = (restaurantId) => {
   const clear = () => {
     dispatch({ type: CLEAR_ACTION });
   };
-
-  useEffect(() => {
-    clear(); // to clear the form when a tab is changed
-  }, [restaurantId]);
 
   return {
     MAX_RATING,

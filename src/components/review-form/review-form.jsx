@@ -5,9 +5,9 @@ import { ClearButton } from '../buttons/clear-button/clear-button';
 import styles from './review-form.module.css';
 import globalStyles from '../app/common.module.css';
 
-export const ReviewForm = ({ restaurantId }) => {
+export const ReviewForm = () => {
   const { reviewForm, onTextChange, onRatingChange, clear, MAX_RATING } =
-    useReviewForm(restaurantId);
+    useReviewForm();
 
   return (
     <div className={styles.reviewForm}>

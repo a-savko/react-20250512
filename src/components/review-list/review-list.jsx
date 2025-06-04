@@ -4,7 +4,7 @@ import { ReviewForm } from '../review-form/review-form';
 
 import styles from './review-list.module.css';
 
-export const Reviews = ({ restaurantId, reviews }) => {
+export const Reviews = ({ reviews }) => {
   return (
     <div className={styles.reviews}>
       <h3>Reviews</h3>
@@ -17,7 +17,7 @@ export const Reviews = ({ restaurantId, reviews }) => {
       ) : (
         <NoData />
       )}
-      <ReviewForm restaurantId={restaurantId} />
+      <ReviewForm />
     </div>
   );
 };

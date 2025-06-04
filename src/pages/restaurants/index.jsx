@@ -32,7 +32,7 @@ export const Restaurants = ({ restaurants }) => {
 
         <div className={styles.tabContent}>
           <Restaurant
-            id={activeRestaurant.id}
+            key={activeRestaurant.id}
             menu={activeRestaurant.menu}
             reviews={activeRestaurant.reviews}
           />
