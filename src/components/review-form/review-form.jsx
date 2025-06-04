@@ -1,5 +1,6 @@
 import { Counter } from '../counters/counter';
 import { useReviewForm } from './use-review-form';
+import { ClearButton } from '../buttons/clear-button/clear-button';
 
 export const ReviewForm = ({ restaurantId }) => {
   const {
@@ -54,9 +55,7 @@ export const ReviewForm = ({ restaurantId }) => {
           </label>
         </div>
         <div>
-          <button name='clear' onClick={clear}>
-            Clear
-          </button>
+          <ClearButton onClick={clear}>Clear</ClearButton>
         </div>
       </form>
     </div>

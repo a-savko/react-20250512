@@ -1,0 +1,9 @@
+/* Clear button style */
+
+.clearButton {
+  background-color: #cc3300;
+}
+
+.clearButton:hover {
+  background-color: #991f00;
+}
