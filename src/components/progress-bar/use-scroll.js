@@ -13,7 +13,7 @@ export const useScroll = () => {
             document.documentElement.clientHeight
         );
 
-        const scrollTop = window.scrollY;
+        const scrollTop = Math.ceil(window.scrollY);
         const clientWindowHeight = document.documentElement.clientHeight;
         const scrollPercent = scrollTop / (scrollHeight - clientWindowHeight);
         const scrollPercentRounded = Number((scrollPercent * 100).toFixed(2));
