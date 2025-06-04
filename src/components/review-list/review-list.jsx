@@ -8,7 +8,7 @@ export const Reviews = ({ reviews }) => {
   return (
     <div className={styles.reviews}>
       <h3>Reviews</h3>
-      {reviews && reviews.length > 0 ? (
+      {reviews?.length > 0 ? (
         <div>
           {reviews.map(({ id, user, text, rating }) => (
             <Review key={id} user={user} text={text} rating={rating} />
