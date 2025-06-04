@@ -1,0 +1,21 @@
+.menuItem {
+  display: flex;
+  border: 1px solid #d1ddff;
+  padding: 15px;
+  margin-bottom: 5px;
+}
+.menuItem :first-child {
+  flex: 70%;
+}
+
+.menuContent {
+}
+
+.dishCounter {
+  align-content: center;
+}
+
+.price {
+  color: #004d99;
+  font-weight: bold;
+}

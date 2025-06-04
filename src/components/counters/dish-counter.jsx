@@ -8,10 +8,12 @@ export const DishCounter = () => {
   const { count, onDecrement, onIncrement } = useCount(MIN_COUNT, MAX_COUNT);
 
   return (
-    <Counter
-      count={count}
-      onDecrement={onDecrement}
-      onIncrement={onIncrement}
-    />
+    <span>
+      <Counter
+        count={count}
+        onDecrement={onDecrement}
+        onIncrement={onIncrement}
+      />
+    </span>
   );
 };

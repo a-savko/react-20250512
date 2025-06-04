@@ -1,0 +1,7 @@
+/* NoData component style */
+.noData {
+  font-style: italic;
+  color: #999;
+  text-align: center;
+  padding: 16px 0;
+}

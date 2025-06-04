@@ -1,3 +1,5 @@
+import styles from './no-data.module.css';
+
 export const NoData = () => {
-  return <div>No data</div>;
+  return <div className={styles.noData}>No data</div>;
 };

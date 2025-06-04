@@ -6,7 +6,7 @@ const MAX_RATING = 5;
 const INITIAL_FORM = {
   name: '',
   text: '',
-  rating: MAX_RATING,
+  rating: 0,
 };
 
 const NAME_ACTION = 'setName';
@@ -74,6 +74,8 @@ export const useReviewForm = (restaurantId) => {
   }, [restaurantId]);
 
   return {
+    MAX_RATING,
+    MIN_RATING,
     reviewForm,
     onNameChange,
     onTextChange,
