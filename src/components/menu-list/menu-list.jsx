@@ -7,7 +7,7 @@ export const Menu = ({ menuItems }) => {
   return (
     <div className={styles.menu}>
       <h3>Menu</h3>
-      {menuItems && menuItems.length > 0 ? (
+      {menuItems?.length > 0 ? (
         <div>
           {menuItems.map(({ id, name, price, ingredients }) => (
             <MenuItem
