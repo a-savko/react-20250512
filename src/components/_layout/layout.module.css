@@ -1,0 +1,11 @@
+/* Layout styles */
+
+.header,
+.footer {
+  background-color: #004d99;
+  color: white;
+  padding: 16px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 19px;
+}

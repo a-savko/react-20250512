@@ -1,0 +1,7 @@
+/* Progress Bar styles */
+
+.scrollProgressBar {
+  position: fixed;
+  height: 5px;
+  background-color: red;
+}

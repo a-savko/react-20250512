@@ -1,0 +1,27 @@
+/* Restaurants component styles */
+
+.restaurants {
+  max-width: 900px;
+  margin: 32px auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.tabTitles {
+  display: flex;
+  border-bottom: 2px solid #004d99;
+  margin-bottom: 16px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .tabTitles {
+    flex-direction: column;
+  }
+  .tabTitles button {
+    width: 100%;
+    text-align: center;
+  }
+}

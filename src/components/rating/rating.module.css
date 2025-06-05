@@ -1,0 +1,12 @@
+/* Rating styles */
+
+.rating {
+  height: 15px;
+  display: flex;
+}
+
+.star svg {
+  fill: #004d99;
+  width: 16px;
+  height: 16px;
+}

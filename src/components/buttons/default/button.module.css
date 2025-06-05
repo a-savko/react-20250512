@@ -1,0 +1,9 @@
+/* Default Button styles */
+
+.button {
+  background-color: #004d99;
+}
+
+.button:hover {
+  background-color: #003366;
+}

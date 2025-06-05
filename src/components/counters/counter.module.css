@@ -1,0 +1,7 @@
+/* Dish Counter button style */
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

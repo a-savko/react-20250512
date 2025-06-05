@@ -1,0 +1,20 @@
+/* Review Form styles */
+
+.reviewForm {
+  border: 1px solid #d1ddff;
+  padding: 15px;
+  margin-bottom: 5px;
+}
+.reviewForm textarea {
+  border-radius: 4px;
+  border: 1px solid #004d99;
+  width: 70%;
+  min-height: 100px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .reviewForm textarea {
+    width: 100%;
+  }
+}

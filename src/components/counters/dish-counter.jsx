@@ -1,5 +1,5 @@
-import { useCount } from '../../hooks/use-count';
-import { Counter } from '../common/counter';
+import { useCount } from './use-count';
+import { Counter } from './counter';
 
 const MIN_COUNT = 0;
 const MAX_COUNT = 5;

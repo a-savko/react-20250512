@@ -1,0 +1,22 @@
+/* Tab button style */
+
+.tabButton {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #004d99;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.tabButton:hover {
+  background-color: #e6f0ff;
+}
+
+.tabButton.active {
+  border-bottom-color: #004d99;
+  font-weight: bold;
+  color: #00264d;
+}
