@@ -15,9 +15,6 @@
   margin-bottom: 16px;
 }
 
-.tabContent {
-}
-
 /* Responsive */
 @media (max-width: 600px) {
   .tabTitles {
