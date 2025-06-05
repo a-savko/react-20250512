@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useScroll = () => {
     const [scrollPercent, setScrollPercent] = useState(0);
 
-    const scrollChange = useCallback(() => {
+    const scrollChange = () => {
         const scrollHeight = Math.max(
             document.body.scrollHeight,
             document.documentElement.scrollHeight,
@@ -19,20 +19,17 @@ export const useScroll = () => {
         const scrollPercentRounded = Number((scrollPercent * 100).toFixed(2));
 
         setScrollPercent(scrollPercentRounded);
-    }, []);
+    };
 
     useEffect(() => {
         // mount
-        const scroll = () => {
-            scrollChange();
-        };
-        window.addEventListener('scroll', scroll);
+        window.addEventListener('scroll', scrollChange);
 
         return () => {
             // unmount
-            window.removeEventListener('scroll', scroll);
+            window.removeEventListener('scroll', scrollChange);
         };
-    }, [scrollChange]);
+    }, []);
 
     return {
         scrollPercent
