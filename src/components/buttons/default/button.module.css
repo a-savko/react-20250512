@@ -1,9 +1,17 @@
 /* Default Button styles */
 
-.button {
+.blue.button {
   background-color: #004d99;
 }
 
-.button:hover {
+.blue.button:hover {
   background-color: #003366;
+}
+
+.green.button {
+  background-color: #008000;
+}
+
+.green.button:hover {
+  background-color: #006400;
 }

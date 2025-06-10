@@ -11,8 +11,15 @@
 
 .tabTitles {
   display: flex;
-  border-bottom: 2px solid #004d99;
+  border-bottom: 2px solid;
   margin-bottom: 16px;
+}
+
+.blue.tabTitles {
+  border-bottom-color: #004d99;
+}
+.green.tabTitles {
+  border-bottom-color: #008000;
 }
 
 /* Responsive */
