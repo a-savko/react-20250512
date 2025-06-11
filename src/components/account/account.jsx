@@ -9,7 +9,7 @@ export const Account = () => {
 
   if (!isAuthorized()) {
     const loginClick = () => {
-      login({ name: 'John Doe', email: 'john.doe@example.com' });
+      login({ id: 1, name: 'John Doe', email: 'john.doe@example.com' });
     };
 
     return (
