@@ -4,10 +4,17 @@ import { ClearButton } from '../buttons/clear-button/clear-button';
 
 import styles from './review-form.module.css';
 import globalStyles from '../app/common.module.css';
+import { useContext } from 'react';
+import { AccountContext } from '../contexts/account-context/account-context';
 
 export const ReviewForm = () => {
   const { reviewForm, onTextChange, onRatingChange, clear, MAX_RATING } =
     useReviewForm();
+  const { user, isAuthorized } = useContext(AccountContext);
+
+  if (!isAuthorized()) {
+    return null;
+  }
 
   return (
     <div className={styles.reviewForm}>
@@ -17,6 +24,9 @@ export const ReviewForm = () => {
           event.preventDefault();
         }}
       >
+        <div className={globalStyles.row}>
+          <span>{user.name}</span>
+        </div>
         <div className={globalStyles.row}>
           <textarea
             name='text'
