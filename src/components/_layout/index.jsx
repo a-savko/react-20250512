@@ -5,6 +5,8 @@ import styles from './layout.module.css';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
 import { BLUE, GREEN } from '../contexts/theme-context/theme-constants';
+import { AccountContextProvider } from '../contexts/account-context/account-context-provider';
+import { Account } from '../account/account';
 
 export const Layout = ({ children }) => {
   const { theme } = useContext(ThemeContext);
@@ -19,7 +21,7 @@ export const Layout = ({ children }) => {
       <header className={classNames(styles.header, themeClassNames)}>
         <div>Food Delivery Service</div>
         <div>
-          <ThemeButton />
+          <Account />
         </div>
       </header>
       {children}
