@@ -10,11 +10,7 @@ import { AccountContext } from '../contexts/account-context/account-context';
 export const ReviewForm = () => {
   const { reviewForm, onTextChange, onRatingChange, clear, MAX_RATING } =
     useReviewForm();
-  const { user, isAuthorized } = useContext(AccountContext);
-
-  if (!isAuthorized()) {
-    return null;
-  }
+  const { user } = useContext(AccountContext);
 
   return (
     <div className={styles.reviewForm}>

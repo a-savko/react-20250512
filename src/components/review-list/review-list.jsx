@@ -7,9 +7,11 @@ import { useContext } from 'react';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
 import { BLUE, GREEN } from '../contexts/theme-context/theme-constants';
+import { AccountContext } from '../contexts/account-context/account-context';
 
 export const Reviews = ({ reviews }) => {
   const { theme } = useContext(ThemeContext);
+  const { isAuthorized } = useContext(AccountContext);
 
   return (
     <div
@@ -28,7 +30,7 @@ export const Reviews = ({ reviews }) => {
       ) : (
         <NoData />
       )}
-      <ReviewForm />
+      {isAuthorized() && <ReviewForm />}
     </div>
   );
 };
