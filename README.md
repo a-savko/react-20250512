@@ -87,10 +87,17 @@ or with yarn:
 yarn preview
 ```
 
-## Folder Structure
+## Project Structure
+
+### Folder Structure
 
 - `public/` - Static files and the main HTML file
 - `src/` - React components, styles, and other source files
+
+### Files Structure
+
+`components/{component_name}/{name}-container.jsx` - data processing layer
+`components/{component_name}/{name}.jsx` - UI processing layer
 
 ## Available Scripts
 
