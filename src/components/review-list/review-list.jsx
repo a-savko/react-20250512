@@ -1,5 +1,4 @@
 import { NoData } from '../common/no-data';
-import { Review } from '../review-item/review-item';
 import { ReviewForm } from '../review-form/review-form';
 
 import styles from './review-list.module.css';
@@ -7,11 +6,10 @@ import { useContext } from 'react';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
 import { BLUE, GREEN } from '../contexts/theme-context/theme-constants';
-import { AccountContext } from '../contexts/account-context/account-context';
+import { ReviewContainer } from '../review-item/review-item-container';
 
-export const Reviews = ({ reviews }) => {
+export const Reviews = ({ reviewIds, showReviewForm = false }) => {
   const { theme } = useContext(ThemeContext);
-  const { isAuthorized } = useContext(AccountContext);
 
   return (
     <div
@@ -21,16 +19,16 @@ export const Reviews = ({ reviews }) => {
       })}
     >
       <h3>Reviews</h3>
-      {reviews?.length > 0 ? (
+      {reviewIds?.length > 0 ? (
         <div>
-          {reviews.map(({ id, user, text, rating }) => (
-            <Review key={id} user={user} text={text} rating={rating} />
+          {reviewIds.map((id) => (
+            <ReviewContainer key={id} id={id} />
           ))}
         </div>
       ) : (
         <NoData />
       )}
-      {isAuthorized() && <ReviewForm />}
+      {showReviewForm && <ReviewForm />}
     </div>
   );
 };

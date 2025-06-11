@@ -5,11 +5,13 @@ import styles from './menu-item.module.css';
 import { BLUE, GREEN } from '../contexts/theme-context/theme-constants';
 import { useContext } from 'react';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
-import { AccountContext } from '../contexts/account-context/account-context';
 
-export const MenuItem = ({ name, price, ingredients }) => {
-  const { isAuthorized } = useContext(AccountContext);
-
+export const MenuItem = ({
+  name,
+  price,
+  ingredients,
+  showDishCounter = false,
+}) => {
   const { theme } = useContext(ThemeContext);
   const themeClassNames = {
     [styles.blue]: theme === BLUE,
@@ -25,7 +27,7 @@ export const MenuItem = ({ name, price, ingredients }) => {
           className={classNames(styles.price, themeClassNames)}
         >{`${price} BYN`}</p>
       </div>
-      {isAuthorized() && (
+      {showDishCounter && (
         <div className={styles.dishCounter}>
           <DishCounter />
         </div>

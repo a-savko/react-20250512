@@ -1,23 +1,27 @@
 import { useState } from 'react';
 import { AccountContext } from './account-context';
+import { useSelector } from 'react-redux';
+import { selectUserById } from '../../../redux/entities/user/slice';
 
 export const AccountContextProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [userId, setUserId] = useState(null);
+
+  const user = useSelector((store) => selectUserById(store, userId)) || null;
 
   const isAuthorized = () => {
-    return user !== null;
+    return userId !== null;
   };
 
-  const login = (user) => {
-    if (!user) {
+  const login = (userId) => {
+    if (!userId) {
       return;
     }
 
-    setUser(user);
+    setUserId(userId);
   };
 
   const logOut = () => {
-    setUser(null);
+    setUserId(null);
   };
 
   return (

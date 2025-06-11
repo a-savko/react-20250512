@@ -7,7 +7,7 @@ import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
 import { BLUE, GREEN } from '../contexts/theme-context/theme-constants';
 
-export const Review = ({ user, text, rating }) => {
+export const Review = ({ name, text, rating }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <div
@@ -16,7 +16,7 @@ export const Review = ({ user, text, rating }) => {
         [styles.green]: theme === GREEN,
       })}
     >
-      <h4>{user}</h4>
+      <h4>{name}</h4>
       <div className={globalStyles.row}>{text}</div>
       <div className={globalStyles.row}>
         <Rating rating={rating} />
