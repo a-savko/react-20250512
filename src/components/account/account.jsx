@@ -19,10 +19,6 @@ export const Account = () => {
     );
   }
 
-  const logoutClick = () => {
-    logOut();
-  };
-
   return (
     <div className={styles.rowContainer}>
       <div className={styles.row}>
@@ -32,7 +28,7 @@ export const Account = () => {
         <ThemeButton />
       </div>
       <div className={styles.row}>
-        <Button onClick={logoutClick}>Logout</Button>
+        <Button onClick={logOut}>Logout</Button>
       </div>
     </div>
   );
