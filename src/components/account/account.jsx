@@ -7,14 +7,14 @@ import styles from './account.module.css';
 export const Account = () => {
   const { user, login, logOut, isAuthorized } = useContext(AccountContext);
 
-  if (!isAuthorized()) {
-    const loginClick = () => {
+  if (!isAuthorized) {
+    const handleLogin = () => {
       login('a304959a-76c0-4b34-954a-b38dbf310360');
     };
 
     return (
       <div>
-        <Button onClick={loginClick}>Login</Button>
+        <Button onClick={handleLogin}>Login</Button>
       </div>
     );
   }

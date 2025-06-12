@@ -9,7 +9,7 @@ export const Restaurant = ({ menu, reviews }) => {
   return (
     <>
       <Menu dishIds={menu} />
-      <Reviews reviewIds={reviews} showReviewForm={isAuthorized()} />
+      <Reviews reviewIds={reviews} showReviewForm={isAuthorized} />
     </>
   );
 };

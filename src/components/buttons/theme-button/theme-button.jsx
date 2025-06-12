@@ -8,11 +8,11 @@ const reverseTheme = (theme) => (theme === BLUE ? GREEN : BLUE);
 export const ThemeButton = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  const changeThemeClick = () => {
+  const handleChangeTheme = () => {
     setTheme(reverseTheme);
   };
 
   const title = `Use ${reverseTheme(theme)} theme`;
 
-  return <Button onClick={changeThemeClick}>{title}</Button>;
+  return <Button onClick={handleChangeTheme}>{title}</Button>;
 };

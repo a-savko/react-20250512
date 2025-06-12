@@ -15,7 +15,7 @@ export const MenuItemContainer = ({ id }) => {
       name={name}
       price={price}
       ingredients={ingredients}
-      showDishCounter={isAuthorized()}
+      showDishCounter={isAuthorized}
     />
   );
 };
