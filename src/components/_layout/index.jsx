@@ -7,6 +7,8 @@ import classNames from 'classnames';
 import { BLUE, GREEN } from '../contexts/theme-context/theme-constants';
 import { AccountContextProvider } from '../contexts/account-context/account-context-provider';
 import { Account } from '../account/account';
+import { Basket } from '../basket/basket';
+import { AccountContext } from '../contexts/account-context/account-context';
 
 export const Layout = ({ children }) => {
   const { theme } = useContext(ThemeContext);
@@ -14,6 +16,7 @@ export const Layout = ({ children }) => {
     [styles.blue]: theme === BLUE,
     [styles.green]: theme === GREEN,
   };
+  const { isAuthorized } = useContext(AccountContext);
 
   return (
     <>
@@ -25,6 +28,11 @@ export const Layout = ({ children }) => {
         </div>
       </header>
       {children}
+      {isAuthorized && (
+        <div>
+          <Basket />
+        </div>
+      )}
       <footer className={classNames(styles.footer, themeClassNames)}>
         Footer
       </footer>

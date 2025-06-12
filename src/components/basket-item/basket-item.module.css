@@ -1,0 +1,18 @@
+.basketItem {
+  display: flex;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.title {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.quantity {
+  font-size: 16px;
+  font-style: italic;
+
+  margin-left: 30px;
+  color: #666;
+}
