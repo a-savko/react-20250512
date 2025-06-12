@@ -30,7 +30,7 @@ export const Reviews = ({ reviews }) => {
       ) : (
         <NoData />
       )}
-      {isAuthorized() && <ReviewForm />}
+      {isAuthorized && <ReviewForm />}
     </div>
   );
 };

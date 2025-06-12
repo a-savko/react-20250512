@@ -25,7 +25,7 @@ export const MenuItem = ({ name, price, ingredients }) => {
           className={classNames(styles.price, themeClassNames)}
         >{`${price} BYN`}</p>
       </div>
-      {isAuthorized() && (
+      {isAuthorized && (
         <div className={styles.dishCounter}>
           <DishCounter />
         </div>

@@ -4,9 +4,7 @@ import { AccountContext } from './account-context';
 export const AccountContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  const isAuthorized = () => {
-    return user !== null;
-  };
+  const isAuthorized = user !== null;
 
   const login = useCallback((user) => {
     if (!user) {

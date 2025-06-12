@@ -7,7 +7,7 @@ import styles from './account.module.css';
 export const Account = () => {
   const { user, login, logOut, isAuthorized } = useContext(AccountContext);
 
-  if (!isAuthorized()) {
+  if (!isAuthorized) {
     const handleLogin = () => {
       login({ id: 1, name: 'John Doe', email: 'john.doe@example.com' });
     };
