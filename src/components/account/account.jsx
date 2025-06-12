@@ -8,13 +8,13 @@ export const Account = () => {
   const { user, login, logOut, isAuthorized } = useContext(AccountContext);
 
   if (!isAuthorized()) {
-    const loginClick = () => {
+    const handleLogin = () => {
       login({ id: 1, name: 'John Doe', email: 'john.doe@example.com' });
     };
 
     return (
       <div>
-        <Button onClick={loginClick}>Login</Button>
+        <Button onClick={handleLogin}>Login</Button>
       </div>
     );
   }
