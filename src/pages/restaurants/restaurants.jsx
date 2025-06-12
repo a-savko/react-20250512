@@ -1,6 +1,5 @@
 import { useContext, useState } from 'react';
-import { Restaurant } from '../../components/restaurant-item/restaurant-item';
-import { TabButton } from '../../components/buttons/tab-button/tab-button';
+import { RestaurantTabButton } from '../../components/buttons/restaurant-tab-button/restaurant-tab-button';
 import { NoData } from '../../components/common/no-data';
 
 import styles from './restaurants.module.css';
@@ -10,16 +9,16 @@ import {
   BLUE,
   GREEN,
 } from '../../components/contexts/theme-context/theme-constants';
+import { RestaurantContainer } from '../../components/restaurant-item/restaurant-item-container';
 
-export const Restaurants = ({ restaurants }) => {
-  const defaultTabId = restaurants[0]?.id;
-  const [activeTabId, setActiveTabId] = useState(defaultTabId);
+export const Restaurants = ({ restaurantIds }) => {
+  const defaultActiveId = restaurantIds[0];
+  const [activeRestaurantId, setActiveRestaurantId] = useState(defaultActiveId);
   const { theme } = useContext(ThemeContext);
 
-  if (!restaurants?.length || restaurants.length < 1) {
+  if (!restaurantIds?.length) {
     return <NoData />;
   }
-  const activeRestaurant = restaurants.find(({ id }) => id === activeTabId);
 
   return (
     <>
@@ -30,23 +29,22 @@ export const Restaurants = ({ restaurants }) => {
             [styles.green]: theme === GREEN,
           })}
         >
-          {restaurants.map(({ id, name }) => {
+          {restaurantIds.map((id) => {
             return (
-              <TabButton
+              <RestaurantTabButton
                 key={id}
-                title={name}
-                isActive={id === activeTabId}
-                onClick={() => setActiveTabId(id)}
+                id={id}
+                isActive={id === activeRestaurantId}
+                onClick={() => setActiveRestaurantId(id)}
               />
             );
           })}
         </div>
 
         <div className={styles.tabContent}>
-          <Restaurant
-            key={activeRestaurant.id}
-            menu={activeRestaurant.menu}
-            reviews={activeRestaurant.reviews}
+          <RestaurantContainer
+            key={activeRestaurantId}
+            id={activeRestaurantId}
           />
         </div>
       </div>
