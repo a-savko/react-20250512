@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { DishCounter } from '../counters/dish-counter';
+import { DishCounter } from '../counters/dish-counter/dish-counter';
 
 import styles from './menu-item.module.css';
 import { BLUE, GREEN } from '../contexts/theme-context/theme-constants';
@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 
 export const MenuItem = ({
+  id,
   name,
   price,
   ingredients,
@@ -29,7 +30,7 @@ export const MenuItem = ({
       </div>
       {showDishCounter && (
         <div className={styles.dishCounter}>
-          <DishCounter />
+          <DishCounter dishId={id} />
         </div>
       )}
     </div>

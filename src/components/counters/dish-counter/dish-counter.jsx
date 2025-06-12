@@ -1,11 +1,15 @@
-import { useCount } from './use-count';
-import { Counter } from './counter';
+import { Counter } from '../counter/counter';
+import { useDishCount } from './use-dish-count';
 
 const MIN_COUNT = 0;
 const MAX_COUNT = 5;
 
-export const DishCounter = () => {
-  const { count, onDecrement, onIncrement } = useCount(MIN_COUNT, MAX_COUNT);
+export const DishCounter = ({ dishId }) => {
+  const { count, onDecrement, onIncrement } = useDishCount(
+    dishId,
+    MIN_COUNT,
+    MAX_COUNT
+  );
 
   return (
     <Counter
