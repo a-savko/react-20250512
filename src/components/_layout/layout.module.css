@@ -2,10 +2,28 @@
 
 .header,
 .footer {
-  background-color: #004d99;
   color: white;
   padding: 16px;
   text-align: center;
   font-weight: bold;
   font-size: 19px;
+}
+
+.header {
+  display: flex;
+}
+
+.header :first-child {
+  flex: 70%;
+  text-align: left;
+}
+
+.blue.header,
+.blue.footer {
+  background-color: #004d99;
+}
+
+.green.header,
+.green.footer {
+  background-color: #008000;
 }

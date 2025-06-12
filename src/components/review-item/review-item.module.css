@@ -1,6 +1,13 @@
 .review {
-  border: 1px solid #d1ddff;
+  border: 1px solid;
   margin-bottom: 8px;
   border-radius: 4px;
   padding: 15px;
+}
+
+.blue.review {
+  border-color: #d1ddff;
+}
+.green.review {
+  border-color: #c6efce;
 }

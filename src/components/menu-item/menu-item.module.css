@@ -1,6 +1,6 @@
 .menuItem {
   display: flex;
-  border: 1px solid #d1ddff;
+  border: 1px solid;
   padding: 15px;
   margin-bottom: 5px;
 }
@@ -13,6 +13,19 @@
 }
 
 .price {
-  color: #004d99;
   font-weight: bold;
+}
+
+.blue.menuItem {
+  border-color: #d1ddff;
+}
+.blue.price {
+  color: #004d99;
+}
+
+.green.menuItem {
+  border-color: #c6efce;
+}
+.green.price {
+  color: #008000;
 }

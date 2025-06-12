@@ -6,17 +6,32 @@
   padding: 8px 16px;
   cursor: pointer;
   font-size: 16px;
-  color: #004d99;
   border-bottom: 3px solid transparent;
   transition: border-color 0.3s ease;
 }
 
-.tabButton:hover {
-  background-color: #e6f0ff;
+.tabButton.active {
+  font-weight: bold;
 }
 
-.tabButton.active {
+.blue.tabButton {
+  color: #004d99;
+}
+.blue.tabButton:hover {
+  background-color: #e6f0ff;
+}
+.blue.tabButton.active {
   border-bottom-color: #004d99;
-  font-weight: bold;
   color: #00264d;
+}
+
+.green.tabButton {
+  color: #008000;
+}
+.green.tabButton:hover {
+  background-color: #c6efce;
+}
+.green.tabButton.active {
+  border-bottom-color: #008000;
+  color: #006400;
 }
