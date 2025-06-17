@@ -1,0 +1,36 @@
+/* Link button style */
+
+.linkButton {
+  background: none;
+  border: none;
+  padding: 8px 0px;
+  cursor: pointer;
+  font-size: 16px;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s ease;
+  text-decoration: none;
+}
+
+.linkButton.active {
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.blue.linkButton {
+  color: #004d99;
+}
+.blue.linkButton:hover,
+.blue.linkButton:focus {
+  background-color: #e6f0ff;
+}
+
+.green.linkButton {
+  color: #008000;
+}
+.green.linkButton:hover {
+  background-color: #c6efce;
+}
+.green.linkButton.active {
+  border-bottom-color: #008000;
+  color: #006400;
+}
