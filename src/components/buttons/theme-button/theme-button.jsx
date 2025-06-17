@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Button } from '../default/button';
+import { Button, RIGHT_TEXT_ALIGN } from '../default/button';
 import { ThemeContext } from '../../contexts/theme-context/theme-context';
 import { BLUE, GREEN } from '../../contexts/theme-context/theme-constants';
 
@@ -14,5 +14,9 @@ export const ThemeButton = () => {
 
   const title = `Use ${reverseTheme(theme)} theme`;
 
-  return <Button onClick={handleChangeTheme}>{title}</Button>;
+  return (
+    <Button onClick={handleChangeTheme} textAlignment={RIGHT_TEXT_ALIGN}>
+      {title}
+    </Button>
+  );
 };
