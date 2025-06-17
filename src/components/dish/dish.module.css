@@ -1,0 +1,31 @@
+.dish {
+  display: flex;
+  border: 1px solid;
+  padding: 15px;
+  margin-bottom: 5px;
+}
+.dish :first-child {
+  flex: 70%;
+}
+
+.dishCounter {
+  align-content: center;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.blue.dish {
+  border-color: #d1ddff;
+}
+.blue.price {
+  color: #004d99;
+}
+
+.green.dish {
+  border-color: #c6efce;
+}
+.green.price {
+  color: #008000;
+}
