@@ -7,12 +7,11 @@
 .title {
   font-size: 16px;
   font-style: italic;
+  flex: 70%;
 }
 
 .quantity {
   font-size: 16px;
   font-style: italic;
-
-  margin-left: 30px;
   color: #666;
 }
