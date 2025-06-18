@@ -5,3 +5,35 @@
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
+
+.container {
+  max-width: 900px;
+  margin: 32px auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.tabTitles {
+  display: flex;
+  border-bottom: 2px solid;
+  margin-bottom: 16px;
+}
+
+.blue.tabTitles {
+  border-bottom-color: #004d99;
+}
+.green.tabTitles {
+  border-bottom-color: #008000;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .tabTitles {
+    flex-direction: column;
+  }
+  .tabTitles a {
+    text-align: center;
+  }
+}
