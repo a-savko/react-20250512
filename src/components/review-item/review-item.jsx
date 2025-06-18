@@ -1,7 +1,7 @@
 import { Rating } from '../rating/rating';
 
 import styles from './review-item.module.css';
-import globalStyles from '../app/common.module.css';
+import globalStyles from '../../app/common.module.css';
 import { useContext } from 'react';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';

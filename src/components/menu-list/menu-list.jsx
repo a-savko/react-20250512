@@ -16,7 +16,6 @@ export const Menu = ({ dishIds }) => {
         [styles.green]: theme === GREEN,
       })}
     >
-      <h3>Menu</h3>
       {dishIds?.length > 0 ? (
         <div>
           {dishIds.map((id) => (

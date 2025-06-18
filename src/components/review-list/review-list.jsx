@@ -18,7 +18,6 @@ export const Reviews = ({ reviewIds, showReviewForm = false }) => {
         [styles.green]: theme === GREEN,
       })}
     >
-      <h3>Reviews</h3>
       {reviewIds?.length > 0 ? (
         <div>
           {reviewIds.map((id) => (
