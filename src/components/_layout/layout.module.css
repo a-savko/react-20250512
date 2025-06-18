@@ -1,5 +1,15 @@
 /* Layout styles */
 
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex-grow: 1;
+}
+
 .header,
 .footer {
   color: white;
@@ -11,19 +21,32 @@
 
 .header {
   display: flex;
+  align-items: center;
 }
 
-.header :first-child {
-  flex: 70%;
+.leftContainer {
+  min-width: 25%;
   text-align: left;
 }
+.rightContainer {
+  min-width: 25%;
+  text-align: right;
+}
 
-.blue.header,
-.blue.footer {
+.title,
+.title a {
+  flex: 50%;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+.blue .header,
+.blue .footer {
   background-color: #004d99;
 }
 
-.green.header,
-.green.footer {
+.green .header,
+.green .footer {
   background-color: #008000;
 }
