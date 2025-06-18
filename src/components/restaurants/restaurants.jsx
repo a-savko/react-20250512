@@ -21,8 +21,8 @@ export const Restaurants = ({ restaurantIds }) => {
       <div className={commonStyles.container}>
         <div
           className={classNames(commonStyles.tabTitles, {
-            [styles.blue]: theme === BLUE,
-            [styles.green]: theme === GREEN,
+            [commonStyles.blue]: theme === BLUE,
+            [commonStyles.green]: theme === GREEN,
           })}
         >
           {restaurantIds.map((id) => {

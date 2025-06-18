@@ -3,13 +3,20 @@ import { TabButton } from '../../../components/buttons/tab-button/tab-button';
 import commonStyles from '../../../app/common.module.css';
 import { useSelector } from 'react-redux';
 import { selectRestaurantById } from '../../../redux/entities/restaurants/slice';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { ROUTE_PATHS } from '../../../constants/router-constants';
+import classNames from 'classnames';
+import { ThemeContext } from '../../../components/contexts/theme-context/theme-context';
+import {
+  BLUE,
+  GREEN,
+} from '../../../components/contexts/theme-context/theme-constants';
 
 const MENU_TAB = 'menu';
 const REVIEWS_TAB = 'reviews';
 
 export const RestaurantPage = () => {
+  const { theme } = useContext(ThemeContext);
   const { id } = useParams();
   const restaurant = useSelector((state) => selectRestaurantById(state, id));
 
@@ -25,7 +32,12 @@ export const RestaurantPage = () => {
   return (
     <div className={commonStyles.container}>
       <h3>{name}</h3>
-      <div className={commonStyles.tabTitles}>
+      <div
+        className={classNames(commonStyles.tabTitles, {
+          [commonStyles.blue]: theme === BLUE,
+          [commonStyles.green]: theme === GREEN,
+        })}
+      >
         <TabButton
           key={MENU_TAB}
           title={'Menu'}
