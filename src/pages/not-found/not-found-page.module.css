@@ -1,0 +1,24 @@
+.container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-size: 18px;
+  margin-bottom: 24px;
+  color: #555;
+}
+
+.blue .title {
+  color: #004d99;
+}
+
+.green .title {
+  color: #008000;
+}
