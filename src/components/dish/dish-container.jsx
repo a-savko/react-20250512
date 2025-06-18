@@ -20,7 +20,7 @@ export const DishContainer = ({ id }) => {
       name={name}
       price={price}
       ingredients={ingredients}
-      restaurantName={restaurant.name}
+      restaurantName={restaurant?.name}
       showDishCounter={isAuthorized}
     />
   );

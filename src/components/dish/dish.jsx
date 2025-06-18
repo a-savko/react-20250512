@@ -10,7 +10,7 @@ export const Dish = ({
   id,
   name,
   price,
-  ingredients,
+  ingredients = [],
   restaurantName,
   showDishCounter = false,
 }) => {
