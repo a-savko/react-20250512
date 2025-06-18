@@ -11,3 +11,5 @@ export const ROUTE_PATHS = {
   NotFound: '/not-found',
   NotSpecified: '*',
 };
+
+export const fillRouteId = (path, id) => path.replace(ITEM_ID_ROUTE_TEMPLATE, id);

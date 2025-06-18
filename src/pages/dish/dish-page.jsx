@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { selectRestaurantByDishId } from '../../redux/entities/restaurants/slice';
 import { DishContainer } from '../../components/dish/dish-container';
 import {
+  fillRouteId,
   ITEM_ID_ROUTE_TEMPLATE,
   ROUTE_PATHS,
 } from '../../constants/router-constants';
@@ -25,11 +26,7 @@ export const DishPage = () => {
     }
 
     const { id, name } = dish;
-    const restaurantDetailsRoutePath = ROUTE_PATHS.RestaurantDetails.replace(
-      ITEM_ID_ROUTE_TEMPLATE,
-      id
-    );
-    showBackButton(restaurantDetailsRoutePath, name);
+    showBackButton(fillRouteId(ROUTE_PATHS.RestaurantDetails, id), name);
 
     return () => {
       hideBackButton();

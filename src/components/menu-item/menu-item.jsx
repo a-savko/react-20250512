@@ -6,10 +6,7 @@ import { BLUE, GREEN } from '../contexts/theme-context/theme-constants';
 import { useContext } from 'react';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import { LinkButton } from '../buttons/link-button/link-button';
-import {
-  ITEM_ID_ROUTE_TEMPLATE,
-  ROUTE_PATHS,
-} from '../../constants/router-constants';
+import { fillRouteId, ROUTE_PATHS } from '../../constants/router-constants';
 
 export const MenuItem = ({
   id,
@@ -23,15 +20,15 @@ export const MenuItem = ({
     [styles.blue]: theme === BLUE,
     [styles.green]: theme === GREEN,
   };
-  const dishDetailsRoutePath = ROUTE_PATHS.DishDetails.replace(
-    ITEM_ID_ROUTE_TEMPLATE,
-    id
-  );
+
   return (
     <div className={classNames(styles.menuItem, themeClassNames)}>
       <div className={styles.menuContent}>
         <h4>
-          <LinkButton to={dishDetailsRoutePath} title={name} />
+          <LinkButton
+            to={fillRouteId(ROUTE_PATHS.DishDetails, id)}
+            title={name}
+          />
         </h4>
         <p>{ingredients.join(', ')}</p>
         <p
