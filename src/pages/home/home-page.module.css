@@ -1,0 +1,27 @@
+.logo {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.logo svg {
+  min-height: 356px;
+}
+
+.slogan {
+  font-size: 21px;
+  font-weight: bold;
+  padding-bottom: 16px;
+  font-style: italic;
+}
+
+.blue.logo svg {
+  fill: #004d99;
+}
+
+.green.logo svg {
+  fill: #008000;
+}
