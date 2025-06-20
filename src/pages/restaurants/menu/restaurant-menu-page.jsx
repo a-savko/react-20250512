@@ -12,6 +12,6 @@ export const RestaurantMenuPage = () => {
     return () => {
       hideBackButton();
     };
-  });
+  }, [hideBackButton, showBackButton]);
   return <RestaurantMenuContainer />;
 };

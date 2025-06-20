@@ -12,7 +12,7 @@ export const RestaurantReviewsPage = () => {
     return () => {
       hideBackButton();
     };
-  });
+  }, [hideBackButton, showBackButton]);
 
   return <RestaurantReviewsContainer />;
 };

@@ -27,7 +27,7 @@ export const DishPage = () => {
     return () => {
       hideBackButton();
     };
-  });
+  }, [dish, hideBackButton, navigate, showBackButton]);
 
   return (
     <div className={commonStyles.container}>
