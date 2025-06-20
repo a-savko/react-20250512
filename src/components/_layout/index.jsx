@@ -14,17 +14,15 @@ import { ROUTE_PATHS } from '../../constants/router-constants';
 export const Layout = ({ showTitle = true }) => {
   const { theme } = useContext(ThemeContext);
   const { isAuthorized } = useContext(AccountContext);
-  const { isBackButtonHidden, backButtonLink, backButtonTitle } =
-    useContext(NavigationContext);
+  const { backButton } = useContext(NavigationContext);
+  const { isHidden, link, title } = backButton;
 
   return (
     <div className={classNames(styles.container, theme)}>
       <ProgressBar />
       <header className={styles.header}>
         <div className={styles.leftContainer}>
-          {!isBackButtonHidden && (
-            <BackButton to={backButtonLink} title={backButtonTitle} />
-          )}
+          {!isHidden && <BackButton to={link} title={title} />}
         </div>
         <div className={styles.title}>
           {showTitle && (

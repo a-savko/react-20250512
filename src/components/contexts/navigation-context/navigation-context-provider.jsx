@@ -1,33 +1,21 @@
 import { useCallback, useState } from 'react';
-import {
-  NavigationContext,
-  DEFAULT_BACK_TITLE,
-  DEFAULT_BACK_LINK,
-} from './navigation-context';
+import { NavigationContext, DEFAULT_BACK_BUTTON } from './navigation-context';
 
 export const NavigationContextProvider = ({ children }) => {
-  const [isBackButtonHidden, setIsBackButtonHidden] = useState(true);
-  const [backButtonLink, setBackButtonLink] = useState(DEFAULT_BACK_LINK);
-  const [backButtonTitle, setBackButtonTitle] = useState(DEFAULT_BACK_TITLE);
+  const [backButton, setBackButton] = useState(DEFAULT_BACK_BUTTON);
 
   const showBackButton = useCallback((to, title) => {
-    setIsBackButtonHidden(false);
-    setBackButtonLink(to);
-    setBackButtonTitle(title);
+    setBackButton({ isHidden: false, link: to, title });
   }, []);
 
   const hideBackButton = useCallback(() => {
-    setIsBackButtonHidden(true);
-    setBackButtonLink(DEFAULT_BACK_LINK);
-    setBackButtonTitle(DEFAULT_BACK_TITLE);
+    setBackButton(DEFAULT_BACK_BUTTON);
   }, []);
 
   return (
     <NavigationContext
       value={{
-        isBackButtonHidden,
-        backButtonLink,
-        backButtonTitle,
+        backButton,
         showBackButton,
         hideBackButton,
       }}

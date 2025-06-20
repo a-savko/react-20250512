@@ -1,13 +1,14 @@
 import { createContext } from "react";
 import { ROUTE_PATHS } from "../../../constants/router-constants";
 
-export const DEFAULT_BACK_TITLE = 'Back';
-export const DEFAULT_BACK_LINK = ROUTE_PATHS.Home;
+export const DEFAULT_BACK_BUTTON = {
+    isHidden: true,
+    link: ROUTE_PATHS.Home,
+    title: 'Back',
+};
 
 export const NavigationContext = createContext({
-    isBackButtonHidden: false,
-    backButtonLink: DEFAULT_BACK_LINK,
-    backButtonTitle: DEFAULT_BACK_TITLE,
+    backButton: DEFAULT_BACK_BUTTON,
     showBackButton: () => { },
     hideBackButton: () => { },
 });
