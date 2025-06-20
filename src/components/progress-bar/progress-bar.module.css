@@ -3,5 +3,5 @@
 .scrollProgressBar {
   position: fixed;
   height: 5px;
-  background-color: var(--scroll-progress-bar-color);
+  background-color: var(--contrast-orange-color);
 }
