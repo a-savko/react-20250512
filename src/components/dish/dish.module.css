@@ -16,16 +16,9 @@
   font-weight: bold;
 }
 
-.blue.dish {
-  border-color: #d1ddff;
+.dish {
+  border-color: var(--primary-color-light);
 }
-.blue.price {
-  color: #004d99;
-}
-
-.green.dish {
-  border-color: #c6efce;
-}
-.green.price {
-  color: #008000;
+.price {
+  color: var(--primary-color);
 }

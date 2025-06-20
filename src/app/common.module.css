@@ -9,9 +9,9 @@
 .container {
   max-width: 900px;
   margin: 32px auto;
-  background: white;
+  background: var(--container-background);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--container-box-shadow);
   padding: 16px;
 }
 
@@ -19,13 +19,7 @@
   display: flex;
   border-bottom: 2px solid;
   margin-bottom: 16px;
-}
-
-.blue.tabTitles {
-  border-bottom-color: #004d99;
-}
-.green.tabTitles {
-  border-bottom-color: #008000;
+  border-bottom-color: var(--primary-color);
 }
 
 /* Responsive */

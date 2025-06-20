@@ -3,7 +3,6 @@ import { ProgressBar } from '../progress-bar/progress-bar';
 import styles from './layout.module.css';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
-import { BLUE, GREEN } from '../contexts/theme-context/theme-constants';
 import { Account } from '../account/account';
 import { Basket } from '../basket/basket';
 import { AccountContext } from '../contexts/account-context/account-context';
@@ -14,16 +13,12 @@ import { ROUTE_PATHS } from '../../constants/router-constants';
 
 export const Layout = ({ showTitle = true }) => {
   const { theme } = useContext(ThemeContext);
-  const themeClassNames = {
-    [styles.blue]: theme === BLUE,
-    [styles.green]: theme === GREEN,
-  };
   const { isAuthorized } = useContext(AccountContext);
   const { isBackButtonHidden, backButtonLink, backButtonTitle } =
     useContext(NavigationContext);
 
   return (
-    <div className={classNames(styles.container, themeClassNames)}>
+    <div className={classNames(styles.container, theme)}>
       <ProgressBar />
       <header className={styles.header}>
         <div className={styles.leftContainer}>

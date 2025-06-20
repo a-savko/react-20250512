@@ -3,8 +3,8 @@
 .restaurants {
   max-width: 900px;
   margin: 32px auto;
-  background: white;
+  background: var(--container-background);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--container-box-shadow);
   padding: 16px;
 }

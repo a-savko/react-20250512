@@ -12,11 +12,12 @@
 
 .header,
 .footer {
-  color: white;
+  color: var(--button-text-color);
   padding: 16px;
   text-align: center;
   font-weight: bold;
   font-size: 19px;
+  background-color: var(--primary-color);
 }
 
 .header {
@@ -38,15 +39,5 @@
   flex: 50%;
   text-align: center;
   text-decoration: none;
-  color: white;
-}
-
-.blue .header,
-.blue .footer {
-  background-color: #004d99;
-}
-
-.green .header,
-.green .footer {
-  background-color: #008000;
+  color: var(--button-text-color);
 }

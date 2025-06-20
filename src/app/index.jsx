@@ -1,6 +1,9 @@
 import { Layout } from '../components/_layout';
 
 import './global.css';
+import './themes/green-theme.css';
+import './themes/blue-theme.css';
+
 import { ThemeContextProvider } from '../components/contexts/theme-context/theme-context-provider';
 import { AccountContextProvider } from '../components/contexts/account-context/account-context-provider';
 import { Provider } from 'react-redux';

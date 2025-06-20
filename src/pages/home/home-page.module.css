@@ -18,10 +18,6 @@
   font-style: italic;
 }
 
-.blue.logo svg {
-  fill: #004d99;
-}
-
-.green.logo svg {
-  fill: #008000;
+.logo svg {
+  fill: var(--primary-color);
 }

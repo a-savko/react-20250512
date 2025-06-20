@@ -1,9 +1,9 @@
 /* Clear button styles */
 
 .clearButton {
-  background-color: #cc3300;
+  background-color: var(--primary-color);
 }
 
 .clearButton:hover {
-  background-color: #991f00;
+  background-color: var(--primary-color-dark);
 }

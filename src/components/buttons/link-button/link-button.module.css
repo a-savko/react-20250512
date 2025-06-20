@@ -9,28 +9,17 @@
   border-bottom: 3px solid transparent;
   transition: border-color 0.3s ease;
   text-decoration: none;
+  color: var(--primary-color);
 }
 
 .linkButton.active {
   font-weight: bold;
   pointer-events: none;
+  border-bottom-color: var(--primary-color);
+  color: var(--primary-color-dark);
 }
 
-.blue.linkButton {
-  color: #004d99;
-}
-.blue.linkButton:hover,
-.blue.linkButton:focus {
-  background-color: #e6f0ff;
-}
-
-.green.linkButton {
-  color: #008000;
-}
-.green.linkButton:hover {
-  background-color: #c6efce;
-}
-.green.linkButton.active {
-  border-bottom-color: #008000;
-  color: #006400;
+.linkButton:hover,
+.linkButton:focus {
+  background-color: var(--primary-color-light);
 }

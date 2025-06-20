@@ -18,10 +18,7 @@ export const ThemeButton = () => {
   return (
     <button
       type='button'
-      className={classNames(styles.button, {
-        [styles.blue]: theme === BLUE,
-        [styles.green]: theme === GREEN,
-      })}
+      className={classNames(styles.button, theme)}
       onClick={handleChangeTheme}
     >
       {title}

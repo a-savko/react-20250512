@@ -6,7 +6,6 @@ import commonStyles from '../../app/common.module.css';
 
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
-import { BLUE, GREEN } from '../contexts/theme-context/theme-constants';
 
 export const Restaurants = ({ restaurantIds }) => {
   const { theme } = useContext(ThemeContext);
@@ -16,13 +15,8 @@ export const Restaurants = ({ restaurantIds }) => {
   }
 
   return (
-    <div className={commonStyles.container}>
-      <div
-        className={classNames(commonStyles.tabTitles, {
-          [commonStyles.blue]: theme === BLUE,
-          [commonStyles.green]: theme === GREEN,
-        })}
-      >
+    <div className={classNames(commonStyles.container, theme)}>
+      <div className={commonStyles.tabTitles}>
         {restaurantIds.map((id) => {
           return <RestaurantTabButton key={id} id={id} />;
         })}

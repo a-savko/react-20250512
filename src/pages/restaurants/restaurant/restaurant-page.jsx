@@ -7,10 +7,6 @@ import { useContext, useEffect } from 'react';
 import { ROUTE_PATHS } from '../../../constants/router-constants';
 import classNames from 'classnames';
 import { ThemeContext } from '../../../components/contexts/theme-context/theme-context';
-import {
-  BLUE,
-  GREEN,
-} from '../../../components/contexts/theme-context/theme-constants';
 
 const MENU_TAB = 'menu';
 const REVIEWS_TAB = 'reviews';
@@ -30,14 +26,9 @@ export const RestaurantPage = () => {
   const { name } = restaurant;
 
   return (
-    <div className={commonStyles.container}>
+    <div className={classNames(commonStyles.container, theme)}>
       <h3>{name}</h3>
-      <div
-        className={classNames(commonStyles.tabTitles, {
-          [commonStyles.blue]: theme === BLUE,
-          [commonStyles.green]: theme === GREEN,
-        })}
-      >
+      <div className={commonStyles.tabTitles}>
         <TabButton
           key={MENU_TAB}
           title={'Menu'}
