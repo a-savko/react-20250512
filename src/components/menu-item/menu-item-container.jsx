@@ -12,6 +12,7 @@ export const MenuItemContainer = ({ id }) => {
 
   return (
     <MenuItem
+      id={id}
       name={name}
       price={price}
       ingredients={ingredients}

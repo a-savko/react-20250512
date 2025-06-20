@@ -1,0 +1,11 @@
+.green {
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --button-text-color: white;
+  --container-background: white;
+  --container-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --primary-color: #008000;
+  --primary-color-dark: #006400;
+  --primary-color-light: #d8ffe0;
+  --contrast-orange-color: #ff5722;
+}

@@ -3,7 +3,7 @@ import { useReviewForm } from './use-review-form';
 import { ClearButton } from '../buttons/clear-button/clear-button';
 
 import styles from './review-form.module.css';
-import globalStyles from '../app/common.module.css';
+import globalStyles from '../../app/common.module.css';
 import { useContext } from 'react';
 import { AccountContext } from '../contexts/account-context/account-context';
 

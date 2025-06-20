@@ -8,12 +8,5 @@
 .star svg {
   width: 16px;
   height: 16px;
-}
-
-.blue.star svg {
-  fill: #004d99;
-}
-
-.green.star svg {
-  fill: #008000;
+  fill: var(--primary-color);
 }

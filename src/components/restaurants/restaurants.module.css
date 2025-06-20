@@ -1,0 +1,10 @@
+/* Restaurants component styles */
+
+.restaurants {
+  max-width: 900px;
+  margin: 32px auto;
+  background: var(--container-background);
+  border-radius: 8px;
+  box-shadow: var(--container-box-shadow);
+  padding: 16px;
+}

@@ -1,13 +1,13 @@
 /* Review Form styles */
 
 .reviewForm {
-  border: 1px solid #d1ddff;
+  border: 1px solid var(--primary-color-light);
   padding: 15px;
   margin-bottom: 5px;
 }
 .reviewForm textarea {
   border-radius: 4px;
-  border: 1px solid #004d99;
+  border: 1px solid var(--primary-color);
   width: 70%;
   min-height: 100px;
 }

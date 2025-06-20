@@ -1,0 +1,9 @@
+/* Default Button styles */
+.button {
+  text-align: right;
+  background-color: var(--primary-color);
+}
+
+.button:hover {
+  background-color: var(--primary-color-dark);
+}
