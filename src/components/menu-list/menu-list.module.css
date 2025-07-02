@@ -5,16 +5,6 @@
 }
 
 .menu h3 {
-  border-bottom: 2px solid;
-  padding-bottom: 5px;
-  margin-bottom: 8px;
-}
-
-.blue.menu h3 {
-  border-bottom-color: #004d99;
-  color: #004d99;
-}
-.green.menu h3 {
-  border-bottom-color: #008000;
-  color: #008000;
+  border-bottom-color: var(--primary-color);
+  color: var(--primary-color);
 }

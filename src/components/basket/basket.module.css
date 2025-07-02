@@ -1,0 +1,74 @@
+.basket {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-family: Arial, sans-serif;
+  color: #333;
+  cursor: pointer;
+  z-index: 1000;
+  user-select: none;
+}
+
+/* collapsed basket */
+
+.collapsed {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+}
+
+.basketIcon svg {
+  width: 48px;
+  height: 48px;
+  margin-right: 8px;
+}
+
+.basketIcon svg {
+  fill: var(--primary-color);
+}
+
+.totalCount {
+  font-weight: bold;
+}
+
+/* expanded basket */
+
+.expanded {
+  padding: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.expanded h3 {
+  border-bottom: 2px solid;
+  padding-bottom: 5px;
+  margin-bottom: 8px;
+}
+
+.expanded h3 {
+  border-bottom-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.basketItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+.emptyBasket {
+  font-style: italic;
+  color: #999;
+}

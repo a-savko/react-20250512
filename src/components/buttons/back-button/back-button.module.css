@@ -1,0 +1,20 @@
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  background-color: var(--primary-color);
+}
+
+.backButton:hover,
+.backButton:focus {
+  outline: none;
+  text-decoration: none;
+  background-color: var(--primary-color-dark);
+}

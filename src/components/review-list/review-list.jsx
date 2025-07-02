@@ -5,20 +5,13 @@ import styles from './review-list.module.css';
 import { useContext } from 'react';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
-import { BLUE, GREEN } from '../contexts/theme-context/theme-constants';
 import { ReviewContainer } from '../review-item/review-item-container';
 
 export const Reviews = ({ reviewIds, showReviewForm = false }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div
-      className={classNames(styles.reviews, {
-        [styles.blue]: theme === BLUE,
-        [styles.green]: theme === GREEN,
-      })}
-    >
-      <h3>Reviews</h3>
+    <div className={classNames(styles.reviews, theme)}>
       {reviewIds?.length > 0 ? (
         <div>
           {reviewIds.map((id) => (

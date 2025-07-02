@@ -24,6 +24,12 @@ A restaurant selection and food ordering service built using two approaches: bas
 
 Note: The app entry point is `src/main.jsx`, and the React app mounts to the `div` with id `root` in `index.html`.
 
+## Demo / Staging
+
+The application demo is deployed on Vercel and is publicly accessible. This demo represents the staging environment where the latest tested features are available for review.
+
+- Access the demo here: [App demo on Vercel](https://react-20250512.vercel.app/)
+
 ## Prerequisites
 
 - Node.js (<https://nodejs.org/en/>)
