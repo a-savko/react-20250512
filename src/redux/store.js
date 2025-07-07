@@ -8,6 +8,12 @@ import { restaurantSlice } from "./entities/restaurant/slice";
 import { dishSlice } from "./entities/dish/slice";
 import { requestSlice } from "./entities/request/slice";
 
+const loggerMidleware = (store) => (next) => (action) => {
+    console.log('state', store.getState());
+
+    next(action);
+}
+
 export const store = configureStore({
     reducer: {
         [restaurantSlice.name]: restaurantSlice.reducer,
@@ -19,4 +25,5 @@ export const store = configureStore({
         [basketSlice.name]: basketSlice.reducer,
         [requestSlice.name]: requestSlice.reducer,
     },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(loggerMidleware),
 })
