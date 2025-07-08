@@ -1,34 +1,32 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { getDishesThunk } from "./get-dishes";
+
+const entityAdapter = createEntityAdapter();
 
 export const dishesByRestaurantSlice = createSlice({
     name: 'dishesByRestaurantSlice',
-    initialState: {
-        dishes: {},
-        ids: {},
-        entities: {},
-    },
+    initialState: entityAdapter.getInitialState({
+        idsByRestaurant: {},
+        entitiesByRestaurant: {},
+    }),
     selectors: {
-        selectRestaurantsDishByDishId: (state, id) => state.dishes[id],
-        selectDishIdsByRestaurantId: (state, restaurantId) => state.ids[restaurantId] || [],
-        selectDishesByRestaurantId: (state, restaurantId) => state.entities[restaurantId],
+        selectDishIdsByRestaurantId: (state, restaurantId) => state.idsByRestaurant[restaurantId] || [],
+        selectDishesByRestaurantId: (state, restaurantId) => state.entitiesByRestaurant[restaurantId],
     },
     extraReducers: (builder) => {
         builder
             .addCase(getDishesThunk.fulfilled, (state, { meta, payload }) => {
                 const restaurantId = meta.arg;
 
-                state.ids[restaurantId] = payload.map(({ id }) => id);
-                state.entities[restaurantId] = payload;
-                state.dishes = {
-                    ...state.dishes,
-                    ...payload.reduce((acc, dish) => {
-                        acc[dish.id] = dish;
-                        return acc;
-                    }, {})
-                };
+                state.idsByRestaurant[restaurantId] = payload.map(({ id }) => id);
+                state.entitiesByRestaurant[restaurantId] = payload;
+
+                entityAdapter.addMany(state, payload);
             });
     }
-})
+});
 
-export const { selectDishIdsByRestaurantId, selectDishesByRestaurantId, selectRestaurantsDishByDishId } = dishesByRestaurantSlice.selectors;
+const selectDishesSlice = (state) => state[dishesByRestaurantSlice.name];
+export const { selectById: selectRestaurantsDishByDishId } = entityAdapter.getSelectors(selectDishesSlice);
+
+export const { selectDishIdsByRestaurantId, selectDishesByRestaurantId } = dishesByRestaurantSlice.selectors;
