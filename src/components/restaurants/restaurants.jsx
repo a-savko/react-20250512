@@ -7,18 +7,18 @@ import commonStyles from '../../app/common.module.css';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
 
-export const Restaurants = ({ restaurantIds }) => {
+export const Restaurants = ({ restaurants }) => {
   const { theme } = useContext(ThemeContext);
 
-  if (!restaurantIds?.length) {
+  if (!restaurants?.length) {
     return <NoData />;
   }
 
   return (
     <div className={classNames(commonStyles.container, theme)}>
       <div className={commonStyles.tabTitles}>
-        {restaurantIds.map((id) => {
-          return <RestaurantTabButton key={id} id={id} />;
+        {restaurants.map(({ id, name }) => {
+          return <RestaurantTabButton key={id} id={id} name={name} />;
         })}
       </div>
     </div>

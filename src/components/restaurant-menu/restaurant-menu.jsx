@@ -1,18 +1,26 @@
 import { useSelector } from 'react-redux';
-import { selectRestaurantById } from '../../redux/entities/restaurants/slice';
 import { NoData } from '../common/no-data';
 import { Menu } from '../menu-list/menu-list';
-import { useParams } from 'react-router';
+import { getDishesThunk } from '../../redux/entities/dishes/get-dishes';
+import { isLoading } from '../../helpers/statuses-helper';
+import { selectDishesByRestaurantId } from '../../redux/entities/dishes/slice';
+import { Loading } from '../loading/loading';
+import { useRequest } from '../../redux/hooks/use-request';
 
-export const RestaurantMenuContainer = () => {
-  const { id } = useParams();
-  const restaurant = useSelector((state) => selectRestaurantById(state, id));
+export const RestaurantMenuContainer = ({ restaurantId }) => {
+  const requestStatus = useRequest(getDishesThunk, restaurantId);
 
-  if (!restaurant) {
+  const dishes = useSelector((state) =>
+    selectDishesByRestaurantId(state, restaurantId)
+  );
+
+  if (isLoading(requestStatus)) {
+    return <Loading />;
+  }
+
+  if (!dishes?.length) {
     return <NoData />;
   }
 
-  const { menu } = restaurant;
-
-  return <Menu dishIds={menu} />;
+  return <Menu dishes={dishes} />;
 };

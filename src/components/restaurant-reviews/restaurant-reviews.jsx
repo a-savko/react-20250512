@@ -1,22 +1,32 @@
 import { useSelector } from 'react-redux';
-import { selectRestaurantById } from '../../redux/entities/restaurants/slice';
 import { NoData } from '../common/no-data';
 import { Reviews } from '../review-list/review-list';
-import { useParams } from 'react-router';
 import { useContext } from 'react';
 import { AccountContext } from '../contexts/account-context/account-context';
+import { isLoading } from '../../helpers/statuses-helper';
+import { getReviewsThunk } from '../../redux/entities/reviews/get-reviews';
+import { selectReviewsByRestaurantId } from '../../redux/entities/reviews/slice';
+import { getUsersThunk } from '../../redux/entities/user/get-users';
+import { Loading } from '../loading/loading';
+import { useRequest } from '../../redux/hooks/use-request';
 
-export const RestaurantReviewsContainer = () => {
-  const { id } = useParams();
+export const RestaurantReviewsContainer = ({ restaurantId }) => {
   const { isAuthorized } = useContext(AccountContext);
 
-  const restaurant = useSelector((state) => selectRestaurantById(state, id));
+  const reviewsRequestStatus = useRequest(getReviewsThunk, restaurantId);
 
-  if (!restaurant) {
+  const usersRequestStatus = useRequest(getUsersThunk);
+  const reviews = useSelector((state) =>
+    selectReviewsByRestaurantId(state, restaurantId)
+  );
+
+  if (isLoading(reviewsRequestStatus) || isLoading(usersRequestStatus)) {
+    return <Loading />;
+  }
+
+  if (!reviews?.length) {
     return <NoData />;
   }
 
-  const { reviews } = restaurant;
-
-  return <Reviews reviewIds={reviews} showReviewForm={isAuthorized} />;
+  return <Reviews reviews={reviews} showReviewForm={isAuthorized} />;
 };

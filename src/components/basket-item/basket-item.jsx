@@ -1,12 +1,22 @@
 import { useSelector } from 'react-redux';
 import styles from './basket-item.module.css';
-import { selectDishById } from '../../redux/entities/dishes/slice';
+import { selectRestaurantsDishByDishId } from '../../redux/entities/dishes/slice';
 import { selectBasketAmountById } from '../../redux/entities/basket/slice';
+import { selectDishById } from '../../redux/entities/dish/slice';
 
 export const BasketItem = ({ dishId }) => {
   const amount = useSelector((state) => selectBasketAmountById(state, dishId));
 
-  const dish = useSelector((state) => selectDishById(state, dishId));
+  // the dish added to basket from a restaurant dishes page
+  const dishFromDishesSlice = useSelector((state) =>
+    selectRestaurantsDishByDishId(state, dishId)
+  );
+  // the dish added to basket from a dish details page
+  const dishFromDishSlice = useSelector((state) =>
+    selectDishById(state, dishId)
+  );
+
+  const dish = dishFromDishesSlice || dishFromDishSlice;
   const { name } = dish;
 
   return (

@@ -7,15 +7,15 @@ import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
 import { ReviewContainer } from '../review-item/review-item-container';
 
-export const Reviews = ({ reviewIds, showReviewForm = false }) => {
+export const Reviews = ({ reviews, showReviewForm = false }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
     <div className={classNames(styles.reviews, theme)}>
-      {reviewIds?.length > 0 ? (
+      {reviews?.length > 0 ? (
         <div>
-          {reviewIds.map((id) => (
-            <ReviewContainer key={id} id={id} />
+          {reviews.map((review) => (
+            <ReviewContainer key={review.id} review={review} />
           ))}
         </div>
       ) : (

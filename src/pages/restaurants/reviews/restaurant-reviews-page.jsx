@@ -2,8 +2,11 @@ import { useContext, useEffect } from 'react';
 import { RestaurantReviewsContainer } from '../../../components/restaurant-reviews/restaurant-reviews';
 import { NavigationContext } from '../../../components/contexts/navigation-context/navigation-context';
 import { ROUTE_PATHS } from '../../../constants/router-constants';
+import { useParams } from 'react-router';
 
 export const RestaurantReviewsPage = () => {
+  const { id } = useParams();
+
   const { showBackButton, hideBackButton } = useContext(NavigationContext);
 
   useEffect(() => {
@@ -14,5 +17,5 @@ export const RestaurantReviewsPage = () => {
     };
   }, [hideBackButton, showBackButton]);
 
-  return <RestaurantReviewsContainer />;
+  return <RestaurantReviewsContainer restaurantId={id} />;
 };
