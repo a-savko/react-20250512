@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { restaurantsSlice } from "./entities/restaurants/slice";
 import { dishesByRestaurantSlice } from "./entities/dishes/slice";
 import { reviewsByRestaurantSlice } from "./entities/reviews/slice";
 import { usersSlice } from "./entities/user/slice";
@@ -17,7 +16,6 @@ const loggerMidleware = (store) => (next) => (action) => {
 export const store = configureStore({
     reducer: {
         [restaurantSlice.name]: restaurantSlice.reducer,
-        [restaurantsSlice.name]: restaurantsSlice.reducer,
         [usersSlice.name]: usersSlice.reducer,
         [dishSlice.name]: dishSlice.reducer,
         [dishesByRestaurantSlice.name]: dishesByRestaurantSlice.reducer,

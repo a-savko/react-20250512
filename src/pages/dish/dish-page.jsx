@@ -3,15 +3,15 @@ import commonStyles from '../../app/common.module.css';
 import { NavigationContext } from '../../components/contexts/navigation-context/navigation-context';
 import { useContext, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { selectRestaurantByDishId } from '../../redux/entities/restaurants/slice';
 import { DishContainer } from '../../components/dish/dish-container';
 import { fillRouteId, ROUTE_PATHS } from '../../constants/router-constants';
 import { getDishThunk } from '../../redux/entities/dish/get-dish';
-import { getRestaurantsThunk } from '../../redux/entities/restaurants/get-restaurants';
 import { isLoading, isRejected } from '../../helpers/statuses-helper';
 import { selectDishById } from '../../redux/entities/dish/slice';
 import { Loading } from '../../components/loading/loading';
 import { useRequest } from '../../redux/hooks/use-request';
+import { selectRestaurantByDishId } from '../../redux/entities/restaurant/slice';
+import { getRestaurantsThunk } from '../../redux/entities/restaurant/get-restaurants';
 
 export const DishPage = () => {
   const { id } = useParams();

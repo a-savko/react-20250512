@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { API_PATHS } from "../../constants/api-endpoint-constants";
 import { buildUrl } from "../../../helpers/url-helper";
-import { selectRestaurants } from "./slice";
 import { selectIsPendingOrFulfilled } from "../request/slice";
+import { selectRestaurants } from "./slice";
 
 const typePrefix = 'restaurants/getRestaurants';
 

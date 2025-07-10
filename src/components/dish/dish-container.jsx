@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { AccountContext } from '../contexts/account-context/account-context';
 import { useSelector } from 'react-redux';
 import { Dish } from './dish';
-import { selectRestaurantByDishId } from '../../redux/entities/restaurants/slice';
 import { selectDishById } from '../../redux/entities/dish/slice';
+import { selectRestaurantByDishId } from '../../redux/entities/restaurant/slice';
 
 export const DishContainer = ({ id }) => {
   const dish = useSelector((slice) => selectDishById(slice, id));
