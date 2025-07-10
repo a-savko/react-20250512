@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { dishesByRestaurantSlice } from "./entities/dishes/slice";
 import { reviewsByRestaurantSlice } from "./entities/reviews/slice";
 import { usersSlice } from "./entities/user/slice";
 import { basketSlice } from "./entities/basket/slice";
@@ -18,7 +17,6 @@ export const store = configureStore({
         [restaurantSlice.name]: restaurantSlice.reducer,
         [usersSlice.name]: usersSlice.reducer,
         [dishSlice.name]: dishSlice.reducer,
-        [dishesByRestaurantSlice.name]: dishesByRestaurantSlice.reducer,
         [reviewsByRestaurantSlice.name]: reviewsByRestaurantSlice.reducer,
         [basketSlice.name]: basketSlice.reducer,
         [requestSlice.name]: requestSlice.reducer,
