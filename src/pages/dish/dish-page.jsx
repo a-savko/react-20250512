@@ -47,9 +47,8 @@ export const DishPage = () => {
   }, [hideBackButton, restaurant, showBackButton]);
 
   if (
-    isLoading(restaurantsRequestsStatus) ||
-    isLoading(dishRequestStatus) ||
-    (!dish && !isRejected(dishRequestStatus))
+    !restaurant && isLoading(restaurantsRequestsStatus) && !isRejected(restaurantsRequestsStatus)||
+    !dish && isLoading(dishRequestStatus) && !isRejected(dishRequestStatus)
   ) {
     return <Loading />;
   }
