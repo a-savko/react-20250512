@@ -3,7 +3,7 @@ import { buildUrl } from "../../../helpers/url-helper";
 import { API_PATHS } from "../../constants/api-endpoint-constants";
 import { selectIsPendingOrFulfilled } from "../request/slice";
 
-const typePrefix = 'dishe/getDish';
+const typePrefix = 'dish/getDish';
 
 export const getDishThunk = createAsyncThunk(typePrefix, async (dishId, { rejectWithValue }) => {
     const url = buildUrl(API_PATHS.DishDetails, { params: { dishId } });
