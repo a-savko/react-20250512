@@ -26,7 +26,7 @@ export const restaurantSlice = createSlice({
     }
 })
 
-const selectRestaurantSlice = (state) => state[restaurantSlice.name];
+export const selectRestaurantSlice = (state) => state[restaurantSlice.name];
 
 export const {
     selectById: selectRestaurantById,
