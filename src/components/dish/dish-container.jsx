@@ -6,7 +6,7 @@ import { selectDishById } from '../../redux/entities/dish/slice';
 import { selectRestaurantByDishId } from '../../redux/entities/restaurant/slice';
 
 export const DishContainer = ({ id }) => {
-  const dish = useSelector((slice) => selectDishById(slice, id));
+  const dish = useSelector((state) => selectDishById(state, id));
   const restaurant = useSelector((state) =>
     selectRestaurantByDishId(state, id)
   );
