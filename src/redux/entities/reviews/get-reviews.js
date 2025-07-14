@@ -2,7 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { buildUrl } from "../../../helpers/url-helper";
 import { API_PATHS } from "../../constants/api-endpoint-constants";
 import { selectIsPendingOrFulfilled } from "../request/slice";
-import { selectReviewsByRestaurantId } from "./slice";
 
 const typePrefix = 'reviews/getRestaurantReviews';
 
@@ -19,7 +18,6 @@ export const getReviewsThunk = createAsyncThunk(typePrefix, async (restaurantId,
     condition: (restaurantId, { getState }) => {
         const state = getState();
 
-        return !selectIsPendingOrFulfilled(state, typePrefix, restaurantId)
-            && !selectReviewsByRestaurantId(state, restaurantId)?.length;
+        return !selectIsPendingOrFulfilled(state, typePrefix, restaurantId);
     }
 });

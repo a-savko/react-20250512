@@ -5,17 +5,8 @@ import { selectDishById } from '../../redux/entities/dish/slice';
 
 export const BasketItem = ({ dishId }) => {
   const amount = useSelector((state) => selectBasketAmountById(state, dishId));
+  const dish = useSelector((state) =>selectDishById(state, dishId));
 
-  // the dish added to basket from a restaurant dishes page
-  const dishFromDishesSlice = useSelector((state) =>
-    selectDishById(state, dishId)
-  );
-  // the dish added to basket from a dish details page
-  const dishFromDishSlice = useSelector((state) =>
-    selectDishById(state, dishId)
-  );
-
-  const dish = dishFromDishesSlice || dishFromDishSlice;
   const { name } = dish;
 
   return (
