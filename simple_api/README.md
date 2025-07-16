@@ -1,5 +1,41 @@
 # API
 
+## Scripts
+
+### Development
+
+- `npm run dev` - Start development server with nodemon (auto-restart on file changes)
+- `npm start` - Start production server
+
+### Vercel Deployment
+
+- `npm run vercel:dev` - Start Vercel development server
+- `npm run vercel:deploy` - Deploy to Vercel production
+
+#### Vercel Setup Steps
+
+1. Install Vercel CLI globally: `npm install -g vercel`
+2. Login to Vercel: `vercel login`
+3. Link your project: `vercel link`
+4. Deploy: `npm run vercel:deploy`
+
+#### GitHub Integration
+
+1. Push your code to GitHub repository
+2. Connect your GitHub repo to Vercel dashboard
+3. Vercel will automatically deploy on every push to main branch
+4. Preview deployments will be created for pull requests
+
+## Environment Configuration
+
+Copy `.env.example` to `.env` and configure:
+
+```bash
+cp .env.example .env
+```
+
+## API Endpoints
+
 ## Ресторан
 
 1. GET /api/restaurants/ - все рестораны;
