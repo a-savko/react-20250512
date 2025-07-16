@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
 import styles from './basket-item.module.css';
-import { selectDishById } from '../../redux/entities/dishes/slice';
 import { selectBasketAmountById } from '../../redux/entities/basket/slice';
+import { selectDishById } from '../../redux/entities/dish/slice';
 
 export const BasketItem = ({ dishId }) => {
   const amount = useSelector((state) => selectBasketAmountById(state, dishId));
+  const dish = useSelector((state) =>selectDishById(state, dishId));
 
-  const dish = useSelector((state) => selectDishById(state, dishId));
   const { name } = dish;
 
   return (

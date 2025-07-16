@@ -1,0 +1,113 @@
+/* Loading component styles */
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  min-height: 200px;
+  background: var(--container-background);
+  border-radius: 8px;
+  box-shadow: var(--container-box-shadow);
+  margin: 16px auto;
+  max-width: 400px;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--primary-color-light);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+.loadingText {
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+}
+
+.loadingSubtext {
+  color: #999;
+  font-size: 14px;
+  font-style: italic;
+  margin: 8px 0 0 0;
+  text-align: center;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Inline variant for smaller loading indicators */
+.inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 8px;
+  margin: 0;
+  min-height: auto;
+  max-width: none;
+}
+
+.inline .spinner {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+  margin-bottom: 0;
+}
+
+.inline .loadingText {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* Full page overlay variant */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay .loadingContainer {
+  margin: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .loadingContainer {
+    max-width: 90%;
+    padding: 24px 16px;
+  }
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+  }
+
+  .loadingText {
+    font-size: 15px;
+  }
+}

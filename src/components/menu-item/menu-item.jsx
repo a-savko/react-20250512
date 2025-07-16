@@ -25,7 +25,7 @@ export const MenuItem = ({
             title={name}
           />
         </h4>
-        <p>{ingredients.join(', ')}</p>
+        <p>{ingredients?.join(', ')}</p>
         <p className={styles.price}>{`${price} BYN`}</p>
       </div>
       {showDishCounter && (
