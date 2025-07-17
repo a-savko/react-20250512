@@ -1,13 +1,9 @@
 const express = require("express");
+const config = require("./config");
 const api = require("./api");
 const bodyParser = require("body-parser");
 
 const app = express();
-
-// Environment configuration
-const NODE_ENV = process.env.NODE_ENV || 'development';
-const PORT = process.env.PORT || 3001;
-const HOST = process.env.HOST || 'localhost';
 
 // CORS middleware
 app.use((req, res, next) => {
@@ -33,7 +29,7 @@ app.use("/api", api);
 app.get("/", (req, res) => {
   res.json({
     message: "Simple API is running",
-    environment: NODE_ENV,
+    environment: config.NODE_ENV,
     timestamp: new Date().toISOString(),
     version: "1.0.0"
   });
@@ -49,15 +45,15 @@ app.use((req, res) => {
 });
 
 // For local development
-if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
-  app.listen(PORT, HOST, function (err) {
+if (!config.isProduction || !process.env.VERCEL) {
+  app.listen(config.PORT, config.HOST, function (err) {
     if (err) {
       console.log(err);
       return;
     }
 
-    console.log(`Server running in ${NODE_ENV} mode`);
-    console.log(`Listening at http://${HOST}:${PORT}`);
+    console.log(`Server running in ${config.NODE_ENV} mode`);
+    console.log(`Listening at http://${config.HOST}:${config.PORT}`);
   });
 }
 
