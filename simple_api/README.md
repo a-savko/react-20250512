@@ -26,6 +26,10 @@
 3. Vercel will automatically deploy on every push to main branch
 4. Preview deployments will be created for pull requests
 
+## Configuration
+
+The application uses a centralized configuration system via `config.js`. All environment variables are loaded and processed there.
+
 ## Environment Configuration
 
 Copy `.env.example` to `.env` and configure:
@@ -33,6 +37,13 @@ Copy `.env.example` to `.env` and configure:
 ```bash
 cp .env.example .env
 ```
+
+### Environment Variables
+
+- `NODE_ENV` - Environment mode (development/production)
+- `PORT` - Server port (default: 3001)
+- `HOST` - Server host (default: localhost)
+- `API_RESPONSE_DELAY` - Response delay in milliseconds (default: 3000ms for development, 0 for production)
 
 ## API Endpoints
 
