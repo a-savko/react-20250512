@@ -16,3 +16,9 @@ export const buildUrl = (path, options = {}) => {
 
     return url;
 }
+
+export const buildUrlPath = (path, options = {}) => {
+    const url = buildUrl(path, options);
+
+    return `${url.pathname}${url.search}`;
+}
