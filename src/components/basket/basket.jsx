@@ -34,8 +34,13 @@ export const Basket = () => {
             <div className={styles.emptyBasket}>Basket is empty</div>
           ) : (
             <div className={styles.basketItems}>
-              {basketItems.map(({ id }) => (
-                <BasketItem key={id} dishId={id} />
+              {basketItems.map((item) => (
+                <BasketItem
+                  key={item.id}
+                  dishId={item.id}
+                  dishName={item.name}
+                  quantity={item.quantity}
+                />
               ))}
             </div>
           )}
