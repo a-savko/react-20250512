@@ -3,9 +3,14 @@ import { CONFIG } from '../../config';
 import { API_PATHS } from '../constants/api-endpoint-constants';
 import { buildUrlPath } from '../../helpers/url-helper';
 
+const TAGS = {
+    Reviews: 'Reviews',
+};
+
 export const api = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({ baseUrl: CONFIG.api.host }),
+    tagTypes: Object.values(TAGS),
     endpoints: (builder) => ({
         getRestaurants: builder.query({ query: () => buildUrlPath(API_PATHS.Restaurants) }),
         getRestaurantById: builder.query({
@@ -16,7 +21,8 @@ export const api = createApi({
         }),
         getDishById: builder.query({ query: (dishId) => buildUrlPath(API_PATHS.DishDetails, { params: { dishId } }) }),
         getReviews: builder.query({
-            query: (restaurantId) => buildUrlPath(API_PATHS.RestaurantReviews, { query: { restaurantId } })
+            query: (restaurantId) => buildUrlPath(API_PATHS.RestaurantReviews, { query: { restaurantId } }),
+            providesTags: [{ type: TAGS.Reviews, id: 'all' }]
         }),
         getUsers: builder.query({ query: () => buildUrlPath(API_PATHS.Users) }),
         addReview: builder.mutation({
@@ -25,6 +31,7 @@ export const api = createApi({
                 method: 'POST',
                 body: review,
             }),
+            invalidatesTags: [{ type: TAGS.Reviews, id: 'all' }]
         }),
     })
 });
