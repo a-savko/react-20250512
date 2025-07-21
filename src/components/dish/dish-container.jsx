@@ -1,15 +1,16 @@
 import { useContext } from 'react';
 import { AccountContext } from '../contexts/account-context/account-context';
-import { useSelector } from 'react-redux';
 import { Dish } from './dish';
-import { selectDishById } from '../../redux/entities/dish/slice';
-import { selectRestaurantByDishId } from '../../redux/entities/restaurant/slice';
+import { selectRestaurantFromResultByDishId } from '../../redux/entities/restaurant/selectors';
+import { useGetDishByIdQuery, useGetRestaurantsQuery } from '../../redux/api';
 
 export const DishContainer = ({ id }) => {
-  const dish = useSelector((state) => selectDishById(state, id));
-  const restaurant = useSelector((state) =>
-    selectRestaurantByDishId(state, id)
-  );
+  const { data: dish } = useGetDishByIdQuery(id);
+  const { data: restaurant } = useGetRestaurantsQuery(undefined, {
+    selectFromResult: (result) =>
+      selectRestaurantFromResultByDishId(result, id),
+  });
+
   const { isAuthorized } = useContext(AccountContext);
 
   if (!dish) {

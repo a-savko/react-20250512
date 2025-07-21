@@ -2,37 +2,36 @@ import { useNavigate, useParams } from 'react-router';
 import commonStyles from '../../app/common.module.css';
 import { NavigationContext } from '../../components/contexts/navigation-context/navigation-context';
 import { useContext, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { DishContainer } from '../../components/dish/dish-container';
 import { fillRouteId, ROUTE_PATHS } from '../../constants/router-constants';
-import { getDishThunk } from '../../redux/entities/dish/get-dish';
-import { isLoading, isRejected } from '../../helpers/statuses-helper';
-import { selectDishById } from '../../redux/entities/dish/slice';
 import { Loading } from '../../components/loading/loading';
-import { useRequest } from '../../redux/hooks/use-request';
-import { selectRestaurantByDishId } from '../../redux/entities/restaurant/slice';
-import { getRestaurantsThunk } from '../../redux/entities/restaurant/get-restaurants';
+import { useGetDishByIdQuery, useGetRestaurantsQuery } from '../../redux/api';
+import { selectRestaurantFromResultByDishId } from '../../redux/entities/restaurant/selectors';
 
 export const DishPage = () => {
   const { id } = useParams();
 
   const { showBackButton, hideBackButton } = useContext(NavigationContext);
+  const { isLoading: isRestaurantsLoading } = useGetRestaurantsQuery();
 
-  const restaurantsRequestsStatus = useRequest(getRestaurantsThunk);
-  const dishRequestStatus = useRequest(getDishThunk, id);
+  const {
+    data: dish,
+    isLoading: isDishLoading,
+    isError: isDishError,
+  } = useGetDishByIdQuery(id);
 
-  const restaurant = useSelector((state) =>
-    selectRestaurantByDishId(state, id)
-  );
-  const dish = useSelector((state) => selectDishById(state, id));
+  const { data: restaurant } = useGetRestaurantsQuery(undefined, {
+    selectFromResult: (result) =>
+      selectRestaurantFromResultByDishId(result, id),
+  });
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (!dish && isRejected(dishRequestStatus)) {
+    if (!dish && isDishError) {
       navigate(ROUTE_PATHS.NotFound, { replace: true });
       return;
     }
-  }, [dish, dishRequestStatus, navigate]);
+  }, [dish, isDishError, navigate]);
 
   useEffect(() => {
     // Show back button when restaurant data is loaded
@@ -46,10 +45,7 @@ export const DishPage = () => {
     };
   }, [hideBackButton, restaurant, showBackButton]);
 
-  if (
-    !restaurant && isLoading(restaurantsRequestsStatus) && !isRejected(restaurantsRequestsStatus)||
-    !dish && isLoading(dishRequestStatus) && !isRejected(dishRequestStatus)
-  ) {
+  if ((!restaurant && isRestaurantsLoading) || (!dish && isDishLoading)) {
     return <Loading />;
   }
 

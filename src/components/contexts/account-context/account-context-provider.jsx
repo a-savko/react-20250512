@@ -1,12 +1,15 @@
 import { useCallback, useState } from 'react';
 import { AccountContext } from './account-context';
-import { useSelector } from 'react-redux';
-import { selectUserById } from '../../../redux/entities/user/slice';
+import { useGetUsersQuery } from '../../../redux/api';
+import { selectUserFromResultById } from '../../../redux/entities/user/selectors';
 
 export const AccountContextProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);
 
-  const user = useSelector((store) => selectUserById(store, userId)) || null;
+  const { data: user } = useGetUsersQuery(undefined, {
+    selectFromResult: (result) => selectUserFromResultById(result, userId),
+  });
+
   const isAuthorized = userId !== null;
 
   const login = useCallback((userId) => {

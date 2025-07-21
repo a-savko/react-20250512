@@ -1,16 +1,12 @@
 import { Outlet, useNavigate, useParams } from 'react-router';
 import { TabButton } from '../../../components/buttons/tab-button/tab-button';
 import commonStyles from '../../../app/common.module.css';
-import { useSelector } from 'react-redux';
 import { useContext, useEffect } from 'react';
 import { ROUTE_PATHS } from '../../../constants/router-constants';
 import classNames from 'classnames';
 import { ThemeContext } from '../../../components/contexts/theme-context/theme-context';
-import { selectRestaurantById } from '../../../redux/entities/restaurant/slice';
-import { isLoading, isRejected } from '../../../helpers/statuses-helper';
-import { getRestaurantThunk } from '../../../redux/entities/restaurant/get-restaurant';
 import { Loading } from '../../../components/loading/loading';
-import { useRequest } from '../../../redux/hooks/use-request';
+import { useGetRestaurantByIdQuery } from '../../../redux/api';
 
 const MENU_TAB = 'menu';
 const REVIEWS_TAB = 'reviews';
@@ -18,19 +14,23 @@ const REVIEWS_TAB = 'reviews';
 export const RestaurantPage = () => {
   const { theme } = useContext(ThemeContext);
   const { id } = useParams();
-  const requestStatus = useRequest(getRestaurantThunk, id);
-  const restaurant = useSelector((state) => selectRestaurantById(state, id));
+
+  const {
+    data: restaurant,
+    isLoading: isRestaurantLoading,
+    isError: isRestaurantError,
+  } = useGetRestaurantByIdQuery(id);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!restaurant && isRejected(requestStatus)) {
+    if (!restaurant && isRestaurantError) {
       navigate(ROUTE_PATHS.NotFound, { replace: true });
       return;
     }
-  }, [navigate, requestStatus, restaurant]);
+  }, [isRestaurantError, navigate, restaurant]);
 
-  if (isLoading(requestStatus) || (!restaurant && !isRejected(requestStatus))) {
+  if (isRestaurantLoading) {
     return <Loading />;
   }
 

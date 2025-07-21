@@ -1,3 +1,4 @@
+// should be removed for RTK query only
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { API_PATHS } from "../../constants/api-endpoint-constants";
 import { buildUrl } from "../../../helpers/url-helper";
