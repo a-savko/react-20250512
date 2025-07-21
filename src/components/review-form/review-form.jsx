@@ -1,16 +1,36 @@
 import { Rating } from '../rating/rating';
 import { useReviewForm } from './use-review-form';
 import { ClearButton } from '../buttons/clear-button/clear-button';
+import { Button } from '../buttons/default/button';
 
 import styles from './review-form.module.css';
 import globalStyles from '../../app/common.module.css';
 import { useContext } from 'react';
 import { AccountContext } from '../contexts/account-context/account-context';
+import { useEffect } from 'react';
 
-export const ReviewForm = () => {
-  const { reviewForm, onTextChange, onRatingChange, clear, MAX_RATING } =
-    useReviewForm();
+export const ReviewForm = ({ onSubmitForm, isSubmitDisabled }) => {
+  const {
+    reviewForm,
+    onUserIdChange,
+    onTextChange,
+    onRatingChange,
+    clear,
+    MAX_RATING,
+  } = useReviewForm();
   const { user } = useContext(AccountContext);
+  const { id: userId, name: userName } = user;
+
+  useEffect(() => {
+    if (userId !== reviewForm.userId) {
+      onUserIdChange(userId);
+    }
+  }, [onUserIdChange, reviewForm.userId, userId]);
+
+  const handleFormSubmit = () => {
+    onSubmitForm(reviewForm);
+    clear();
+  };
 
   return (
     <div className={styles.reviewForm}>
@@ -21,7 +41,7 @@ export const ReviewForm = () => {
         }}
       >
         <div className={globalStyles.row}>
-          <span>{user.name}</span>
+          <span>{userName}</span>
         </div>
         <div className={globalStyles.row}>
           <textarea
@@ -44,6 +64,9 @@ export const ReviewForm = () => {
         </div>
         <div className={globalStyles.row}>
           <ClearButton onClick={clear}>Clear</ClearButton>
+          <Button onClick={handleFormSubmit} disabled={isSubmitDisabled}>
+            Submit
+          </Button>
         </div>
       </form>
     </div>

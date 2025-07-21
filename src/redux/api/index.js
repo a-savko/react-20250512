@@ -19,10 +19,18 @@ export const api = createApi({
             query: (restaurantId) => buildUrlPath(API_PATHS.RestaurantReviews, { query: { restaurantId } })
         }),
         getUsers: builder.query({ query: () => buildUrlPath(API_PATHS.Users) }),
+        addReview: builder.mutation({
+            query: ({ restaurantId, review }) => ({
+                url: buildUrlPath(API_PATHS.AddReview, { params: { restaurantId } }),
+                method: 'POST',
+                body: review,
+            }),
+        }),
     })
 });
 
 export const {
+    // GET
     useGetRestaurantsQuery,
     useLazyGetRestaurantsQuery,
     useGetRestaurantByIdQuery,
@@ -35,4 +43,7 @@ export const {
     useLazyGetReviewsQuery,
     useGetUsersQuery,
     useLazyGetUsersQuery,
+
+    // POST
+    useAddReviewMutation,
 } = api;

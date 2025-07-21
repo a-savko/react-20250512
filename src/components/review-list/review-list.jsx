@@ -6,9 +6,17 @@ import { useContext } from 'react';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
 import { ReviewContainer } from '../review-item/review-item-container';
+import { useAddReviewMutation } from '../../redux/api';
+import { useParams } from 'react-router';
 
 export const Reviews = ({ reviews, showReviewForm = false }) => {
   const { theme } = useContext(ThemeContext);
+  const { id: restaurantId } = useParams();
+
+  const [addReviewMutation, { isSuccess, isLoading }] = useAddReviewMutation();
+  const handleSubmitForm = (review) => {
+    addReviewMutation({ restaurantId, review });
+  };
 
   return (
     <div className={classNames(styles.reviews, theme)}>
@@ -21,7 +29,12 @@ export const Reviews = ({ reviews, showReviewForm = false }) => {
       ) : (
         <NoData />
       )}
-      {showReviewForm && <ReviewForm />}
+      {showReviewForm && (
+        <ReviewForm
+          onSubmitForm={handleSubmitForm}
+          isSubmitDisabled={isLoading}
+        />
+      )}
     </div>
   );
 };
