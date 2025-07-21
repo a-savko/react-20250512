@@ -3,7 +3,7 @@ import { basketSlice } from "./entities/basket/slice";
 import { requestSlice } from "./entities/request/slice";
 import { api } from "./api";
 
-const loggerMidleware = (store) => (next) => (action) => {
+const loggerMiddleware = (store) => (next) => (action) => {
     console.log('state', store.getState());
 
     next(action);
@@ -17,5 +17,5 @@ export const store = configureStore({
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware()
         .concat(api.middleware)
-        .concat(loggerMidleware)
+        .concat(loggerMiddleware)
 })
