@@ -13,7 +13,7 @@ export const Reviews = ({ reviews, showReviewForm = false }) => {
   const { theme } = useContext(ThemeContext);
   const { id: restaurantId } = useParams();
 
-  const [addReviewMutation, { isSuccess, isLoading }] = useAddReviewMutation();
+  const [addReviewMutation, { isLoading }] = useAddReviewMutation();
   const handleSubmitForm = (review) => {
     addReviewMutation({ restaurantId, review });
   };
@@ -32,7 +32,7 @@ export const Reviews = ({ reviews, showReviewForm = false }) => {
       {showReviewForm && (
         <ReviewForm
           onSubmitForm={handleSubmitForm}
-          isSubmitDisabled={isLoading}
+          showFormLoader={isLoading}
         />
       )}
     </div>

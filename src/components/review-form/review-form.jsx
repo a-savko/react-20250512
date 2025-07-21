@@ -8,8 +8,14 @@ import globalStyles from '../../app/common.module.css';
 import { useContext } from 'react';
 import { AccountContext } from '../contexts/account-context/account-context';
 import { useEffect } from 'react';
+import { Loading } from '../loading/loading';
+import { LOADING_VARIANTS } from '../loading/loading-constants';
 
-export const ReviewForm = ({ onSubmitForm, isSubmitDisabled }) => {
+export const ReviewForm = ({
+  onSubmitForm,
+  isSubmitDisabled,
+  showFormLoader = false,
+}) => {
   const {
     reviewForm,
     onUserIdChange,
@@ -35,40 +41,47 @@ export const ReviewForm = ({ onSubmitForm, isSubmitDisabled }) => {
   return (
     <div className={styles.reviewForm}>
       <h4>Leave your review</h4>
-      <form
-        onSubmit={(event) => {
-          event.preventDefault();
-        }}
-      >
-        <div className={globalStyles.row}>
-          <span>{userName}</span>
-        </div>
-        <div className={globalStyles.row}>
-          <textarea
-            name='text'
-            value={reviewForm.text}
-            onChange={(event) => {
-              onTextChange(event.target.value);
-            }}
-          />
-        </div>
-        <div className={globalStyles.row}>
-          <span>Rating:</span>
-          <Rating
-            rating={reviewForm.rating}
-            maxRating={MAX_RATING}
-            onClick={(_, rating) => {
-              onRatingChange(rating);
-            }}
-          />
-        </div>
-        <div className={globalStyles.row}>
-          <ClearButton onClick={clear}>Clear</ClearButton>
-          <Button onClick={handleFormSubmit} disabled={isSubmitDisabled}>
-            Submit
-          </Button>
-        </div>
-      </form>
+      {showFormLoader ? (
+        <Loading variant={LOADING_VARIANTS.Default} />
+      ) : (
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+          }}
+        >
+          <div className={globalStyles.row}>
+            <span>{userName}</span>
+          </div>
+          <div className={globalStyles.row}>
+            <textarea
+              name='text'
+              value={reviewForm.text}
+              onChange={(event) => {
+                onTextChange(event.target.value);
+              }}
+            />
+          </div>
+          <div className={globalStyles.row}>
+            <span>Rating:</span>
+            <Rating
+              rating={reviewForm.rating}
+              maxRating={MAX_RATING}
+              onClick={(_, rating) => {
+                onRatingChange(rating);
+              }}
+            />
+          </div>
+          <div className={globalStyles.row}>
+            <ClearButton onClick={clear}>Clear</ClearButton>
+            <Button
+              onClick={handleFormSubmit}
+              disabled={isSubmitDisabled || showFormLoader}
+            >
+              Submit
+            </Button>
+          </div>
+        </form>
+      )}
     </div>
   );
 };
