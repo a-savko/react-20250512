@@ -1,9 +1,10 @@
 /* Clear button styles */
 
 .clearButton {
-  background-color: var(--primary-color);
+  /* TODO: add cancel color, use red */
+  background-color: var(--cancel-button-background);
 }
 
 .clearButton:hover {
-  background-color: var(--primary-color-dark);
+  background-color: var(--cancel-button-background-dark);
 }
