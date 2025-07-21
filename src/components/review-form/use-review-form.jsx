@@ -4,22 +4,22 @@ const MIN_RATING = 1;
 const MAX_RATING = 5;
 
 const INITIAL_FORM = {
-  name: '',
+  userId: '',
   text: '',
   rating: 0,
 };
 
-const NAME_ACTION = 'setName';
+const USER_ID_ACTION = 'setUserId';
 const TEXT_ACTION = 'setText';
 const RATING_ACTION = 'setRating';
 const CLEAR_ACTION = 'clear';
 
 const reducer = (state, { type, payload }) => {
   switch (type) {
-    case NAME_ACTION:
+    case USER_ID_ACTION:
       return {
         ...state,
-        name: payload,
+        userId: payload,
       };
     case TEXT_ACTION:
       return {
@@ -41,8 +41,8 @@ const reducer = (state, { type, payload }) => {
 export const useReviewForm = () => {
   const [reviewForm, dispatch] = useReducer(reducer, INITIAL_FORM);
 
-  const onNameChange = (name) => {
-    dispatch({ type: NAME_ACTION, payload: name });
+  const onUserIdChange = (userId) => {
+    dispatch({ type: USER_ID_ACTION, payload: userId });
   };
 
   const onTextChange = (text) => {
@@ -73,7 +73,7 @@ export const useReviewForm = () => {
     MAX_RATING,
     MIN_RATING,
     reviewForm,
-    onNameChange,
+    onUserIdChange,
     onTextChange,
     onRatingChange,
     onRatingIncrement,

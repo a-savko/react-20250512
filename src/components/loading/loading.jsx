@@ -6,6 +6,7 @@ export const Loading = ({
   variant = LOADING_VARIANTS.Default,
   text = 'Loading...',
   subtext = null,
+  showText = true,
 }) => {
   return (
     <div
@@ -17,7 +18,7 @@ export const Loading = ({
       aria-live='polite'
     >
       <div className={styles.spinner} aria-hidden='true'></div>
-      <p className={styles.loadingText}>{text}</p>
+      {showText && <p className={styles.loadingText}>{text}</p>}
       {subtext && <p className={styles.loadingSubtext}>{subtext}</p>}
     </div>
   );
