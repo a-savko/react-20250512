@@ -27,7 +27,7 @@ export const Account = () => {
   if (isUsersLoading) {
     return (
       <div>
-        <Loading variant={LOADING_VARIANTS.Inline} />
+        <Loading variant={LOADING_VARIANTS.Inline} showText={false} />
       </div>
     );
   }
