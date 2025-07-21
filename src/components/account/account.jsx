@@ -3,8 +3,6 @@ import { AccountContext } from '../contexts/account-context/account-context';
 import { Button } from '../buttons/default/button';
 import { ThemeButton } from '../buttons/theme-button/theme-button';
 import styles from './account.module.css';
-import { getUsersThunk } from '../../redux/entities/user/get-users';
-import { isLoading } from '../../helpers/statuses-helper';
 import { Loading } from '../loading/loading';
 import { LOADING_VARIANTS } from '../loading/loading-constants';
 import { useGetUsersQuery } from '../../redux/api';
