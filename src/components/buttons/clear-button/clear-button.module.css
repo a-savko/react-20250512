@@ -3,6 +3,7 @@
 .clearButton {
   /* TODO: add cancel color, use red */
   background-color: var(--cancel-button-background);
+  margin-right: 10px;
 }
 
 .clearButton:hover {
