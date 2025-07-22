@@ -3,6 +3,7 @@ import { RestaurantReviewsContainer } from '../../../components/restaurant-revie
 import { NavigationContext } from '../../../components/contexts/navigation-context/navigation-context';
 import { ROUTE_PATHS } from '../../../constants/router-constants';
 import { useParams } from 'react-router';
+import { ReviewContextProvider } from '../../../components/contexts/review-context/review-context-provider';
 
 export const RestaurantReviewsPage = () => {
   const { id } = useParams();
@@ -17,5 +18,9 @@ export const RestaurantReviewsPage = () => {
     };
   }, [hideBackButton, showBackButton]);
 
-  return <RestaurantReviewsContainer restaurantId={id} />;
+  return (
+    <ReviewContextProvider>
+      <RestaurantReviewsContainer restaurantId={id} />
+    </ReviewContextProvider>
+  );
 };

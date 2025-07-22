@@ -10,6 +10,7 @@ import { AccountContext } from '../contexts/account-context/account-context';
 import { useEffect } from 'react';
 import { Loading } from '../loading/loading';
 import { LOADING_VARIANTS } from '../loading/loading-constants';
+import { ReviewContext } from '../contexts/review-context/review-context';
 
 export const ReviewForm = ({
   onSubmitForm,
@@ -22,10 +23,13 @@ export const ReviewForm = ({
     onTextChange,
     onRatingChange,
     clear,
+    setForm,
     MAX_RATING,
   } = useReviewForm();
   const { user } = useContext(AccountContext);
   const { id: userId, name: userName } = user;
+  const { editReview, setEditReview } = useContext(ReviewContext);
+  const isEditMode = Boolean(editReview?.id);
 
   useEffect(() => {
     if (userId !== reviewForm.userId) {
@@ -33,14 +37,25 @@ export const ReviewForm = ({
     }
   }, [onUserIdChange, reviewForm.userId, userId]);
 
+  useEffect(() => {
+    if (isEditMode && editReview.id != reviewForm?.id) {
+      setForm(editReview);
+    }
+  }, [isEditMode, editReview, reviewForm?.id, setForm]);
+
   const handleFormSubmit = () => {
     onSubmitForm(reviewForm);
     clear();
   };
 
+  const handleCancel = () => {
+    setEditReview(null);
+    clear();
+  };
+
   return (
     <div className={styles.reviewForm}>
-      <h4>Leave your review</h4>
+      <h4>{isEditMode ? 'Edit your review' : 'Leave your review'}</h4>
       {showFormLoader ? (
         <Loading variant={LOADING_VARIANTS.Default} />
       ) : (
@@ -72,12 +87,14 @@ export const ReviewForm = ({
             />
           </div>
           <div className={globalStyles.row}>
-            <ClearButton onClick={clear}>Clear</ClearButton>
+            <ClearButton onClick={handleCancel}>
+              {isEditMode ? 'Cancel' : 'Clear'}
+            </ClearButton>
             <Button
               onClick={handleFormSubmit}
               disabled={isSubmitDisabled || showFormLoader}
             >
-              Submit
+              {isEditMode ? 'Update' : 'Submit'}
             </Button>
           </div>
         </form>

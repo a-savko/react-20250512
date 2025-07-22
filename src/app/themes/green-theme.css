@@ -10,4 +10,6 @@
   --primary-color-dark: #006400;
   --primary-color-light: #d8ffe0;
   --contrast-orange-color: #ff5722;
+  --disabled-background-color: #ccc;
+  --disabled-text-color: #888;
 }

@@ -6,16 +6,36 @@ import { useContext } from 'react';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
 import { ReviewContainer } from '../review-item/review-item-container';
-import { useAddReviewMutation } from '../../redux/api';
+import { useAddReviewMutation, useUpdateReviewMutation } from '../../redux/api';
 import { useParams } from 'react-router';
+import { ReviewContext } from '../contexts/review-context/review-context';
 
 export const Reviews = ({ reviews, showReviewForm = false }) => {
   const { theme } = useContext(ThemeContext);
   const { id: restaurantId } = useParams();
+  const { editReview, setEditReview } = useContext(ReviewContext);
 
-  const [addReviewMutation, { isLoading }] = useAddReviewMutation();
+  const [addReviewMutation, { isLoading: isAdding }] = useAddReviewMutation();
+  const [updateReviewMutation, { isLoading: isUpdating }] =
+    useUpdateReviewMutation();
+
+  const isLoading = isAdding || isUpdating;
+
   const handleSubmitForm = (review) => {
-    addReviewMutation({ restaurantId, review });
+    if (editReview?.id) {
+      updateReviewMutation({
+        reviewId: editReview.id,
+        review: {
+          text: review.text,
+          rating: review.rating,
+          userId: review.userId,
+        },
+      });
+      // clear the editing state after updating
+      setEditReview(null);
+    } else {
+      addReviewMutation({ restaurantId, review });
+    }
   };
 
   return (

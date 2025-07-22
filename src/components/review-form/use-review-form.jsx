@@ -4,6 +4,7 @@ const MIN_RATING = 1;
 const MAX_RATING = 5;
 
 const INITIAL_FORM = {
+  id: null,
   userId: '',
   text: '',
   rating: 0,
@@ -13,6 +14,7 @@ const USER_ID_ACTION = 'setUserId';
 const TEXT_ACTION = 'setText';
 const RATING_ACTION = 'setRating';
 const CLEAR_ACTION = 'clear';
+const SET_FORM_ACTION = 'setForm';
 
 const reducer = (state, { type, payload }) => {
   switch (type) {
@@ -33,6 +35,11 @@ const reducer = (state, { type, payload }) => {
       };
     case CLEAR_ACTION:
       return INITIAL_FORM;
+    case SET_FORM_ACTION:
+      return {
+        ...state,
+        ...payload,
+      };
     default:
       return state;
   }
@@ -69,6 +76,10 @@ export const useReviewForm = () => {
     dispatch({ type: CLEAR_ACTION });
   };
 
+  const setForm = (formData) => {
+    dispatch({ type: SET_FORM_ACTION, payload: formData });
+  };
+
   return {
     MAX_RATING,
     MIN_RATING,
@@ -79,5 +90,6 @@ export const useReviewForm = () => {
     onRatingIncrement,
     onRatingDecrement,
     clear,
+    setForm,
   };
 };

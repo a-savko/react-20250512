@@ -4,6 +4,7 @@ export const API_PATHS = {
     RestaurantDetails: `/restaurant/:restaurantId`,
     RestaurantReviews: '/reviews',
     AddReview: '/review/:restaurantId',
+    UpdateReview: '/review/:reviewId',
     Dishes: '/dishes',
     DishDetails: `/dish/:dishId`,
     Users: '/users',

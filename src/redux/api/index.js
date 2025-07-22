@@ -33,6 +33,14 @@ export const api = createApi({
             }),
             invalidatesTags: [{ type: TAGS.Reviews, id: 'all' }]
         }),
+        updateReview: builder.mutation({
+            query: ({ reviewId, review }) => ({
+                url: buildUrlPath(API_PATHS.UpdateReview, { params: { reviewId } }),
+                method: 'PATCH',
+                body: review,
+            }),
+            invalidatesTags: [{ type: TAGS.Reviews, id: 'all' }]
+        }),
     })
 });
 
@@ -53,4 +61,7 @@ export const {
 
     // POST
     useAddReviewMutation,
+
+    // PATCH
+    useUpdateReviewMutation,
 } = api;

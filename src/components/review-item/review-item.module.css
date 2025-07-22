@@ -1,7 +1,17 @@
 .review {
+  display: flex;
   border: 1px solid;
   margin-bottom: 8px;
   border-radius: 4px;
   padding: 15px;
   border-color: var(--primary-color-light);
+}
+
+.reviewContent {
+  flex: 1;
+}
+
+.editButton {
+  align-content: center;
+  margin-left: 15px;
 }
