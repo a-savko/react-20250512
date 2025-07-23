@@ -6,34 +6,42 @@ export const basketSlice = createSlice({
     },
     reducers: {
         addToBasket(state, { payload }) {
-            state[payload] = (state[payload] || 0) + 1; // increment or add new one
+            const { dishId, name } = payload;
+            if (state[dishId]) {
+                state[dishId].quantity++;
+                return;
+            }
+
+            state[dishId] = {
+                id: dishId,
+                name,
+                quantity: 1
+            };
+
         },
         removeFromBasket(state, { payload }) {
-            if (!state[payload]) {
+            const dishId = payload;
+            if (!state[dishId]) {
                 return;
             }
 
-            if (state[payload] > 1) {
-                state[payload]--;
+            if (state[dishId].quantity > 1) {
+                state[dishId].quantity--;
                 return;
             }
 
-            delete state[payload];
+            delete state[dishId];
         }
     },
     selectors: {
         selectBasket: (state) => state,
-        selectBasketAmountById: (state, id) => { return state[id] || 0 }
+        selectBasketAmountById: (state, id) => { return state[id]?.quantity || 0 }
     }
 });
 
 const selectBasketSlice = (state) => state[basketSlice.name];
 export const selectBasketItems = createSelector([selectBasketSlice],
-    (state) => {
-        return Object.keys(state).map((dishId) => {
-            return { id: dishId, quantity: state[dishId] }
-        })
-    });
+    (state) => Object.values(state));
 
 export const { addToBasket, removeFromBasket } = basketSlice.actions;
 export const { selectBasket, selectBasketAmountById } = basketSlice.selectors;

@@ -3,16 +3,14 @@ import { AccountContext } from '../contexts/account-context/account-context';
 import { Button } from '../buttons/default/button';
 import { ThemeButton } from '../buttons/theme-button/theme-button';
 import styles from './account.module.css';
-import { useRequest } from '../../redux/hooks/use-request';
-import { getUsersThunk } from '../../redux/entities/user/get-users';
-import { isLoading } from '../../helpers/statuses-helper';
 import { Loading } from '../loading/loading';
 import { LOADING_VARIANTS } from '../loading/loading-constants';
+import { useGetUsersQuery } from '../../redux/api';
 
 export const Account = () => {
   const { user, login, logOut, isAuthorized } = useContext(AccountContext);
 
-  const usersRequestStatus = useRequest(getUsersThunk);
+  const { isLoading: isUsersLoading } = useGetUsersQuery();
 
   if (!isAuthorized) {
     const handleLogin = () => {
@@ -26,10 +24,10 @@ export const Account = () => {
     );
   }
 
-  if (isLoading(usersRequestStatus)) {
+  if (isUsersLoading) {
     return (
       <div>
-        <Loading variant={LOADING_VARIANTS.Inline} />
+        <Loading variant={LOADING_VARIANTS.Inline} showText={false} />
       </div>
     );
   }

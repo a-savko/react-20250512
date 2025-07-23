@@ -6,15 +6,19 @@ import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
 import { MenuItemContainer } from '../menu-item/menu-item-container';
 
-export const Menu = ({ dishes }) => {
+export const Menu = ({ dishIds, restaurantId }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
     <div className={classNames(styles.menu, theme)}>
-      {dishes?.length > 0 ? (
+      {dishIds?.length > 0 ? (
         <div>
-          {dishes.map((dish) => (
-            <MenuItemContainer key={dish.id} dish={dish} />
+          {dishIds.map((dishId) => (
+            <MenuItemContainer
+              key={dishId}
+              dishId={dishId}
+              restaurantId={restaurantId}
+            />
           ))}
         </div>
       ) : (

@@ -1,12 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { reviewsSlice } from "./entities/reviews/slice";
-import { usersSlice } from "./entities/user/slice";
 import { basketSlice } from "./entities/basket/slice";
-import { restaurantSlice } from "./entities/restaurant/slice";
-import { dishSlice } from "./entities/dish/slice";
 import { requestSlice } from "./entities/request/slice";
+import { api } from "./api";
 
-const loggerMidleware = (store) => (next) => (action) => {
+const loggerMiddleware = (store) => (next) => (action) => {
     console.log('state', store.getState());
 
     next(action);
@@ -14,12 +11,11 @@ const loggerMidleware = (store) => (next) => (action) => {
 
 export const store = configureStore({
     reducer: {
-        [restaurantSlice.name]: restaurantSlice.reducer,
-        [usersSlice.name]: usersSlice.reducer,
-        [dishSlice.name]: dishSlice.reducer,
-        [reviewsSlice.name]: reviewsSlice.reducer,
         [basketSlice.name]: basketSlice.reducer,
-        [requestSlice.name]: requestSlice.reducer,
+        [requestSlice.name]: requestSlice.reducer, // should be removed for RTK query only
+        [api.reducerPath]: api.reducer,
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(loggerMidleware),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+        .concat(api.middleware)
+        .concat(loggerMiddleware)
 })

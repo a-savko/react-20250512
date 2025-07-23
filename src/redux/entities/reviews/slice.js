@@ -1,3 +1,4 @@
+// should be removed for RTK query only
 import { createEntityAdapter, createSlice, createSelector } from "@reduxjs/toolkit";
 import { getReviewsThunk } from "./get-reviews";
 import { selectRestaurantSlice } from "../restaurant/slice";

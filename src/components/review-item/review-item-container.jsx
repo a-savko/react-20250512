@@ -1,12 +1,16 @@
-import { useSelector } from 'react-redux';
-import { selectUserById } from '../../redux/entities/user/slice';
+import { useGetUsersQuery } from '../../redux/api';
 import { Review } from './review-item';
+import { selectUserFromResultById } from '../../redux/entities/user/selectors';
 
 export const ReviewContainer = ({ review }) => {
-  const { userId, text, rating } = review;
+  const { id, userId, text, rating } = review;
 
-  const user = useSelector((store) => selectUserById(store, userId)) || {};
-  const { name } = user;
+  const { data: user } = useGetUsersQuery(undefined, {
+    selectFromResult: (result) => selectUserFromResultById(result, userId),
+  });
+  const { name } = user || {};
 
-  return <Review name={name} rating={rating} text={text} />;
+  return (
+    <Review id={id} name={name} rating={rating} text={text} userId={userId} />
+  );
 };

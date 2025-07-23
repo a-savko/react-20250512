@@ -30,7 +30,7 @@ export const MenuItem = ({
       </div>
       {showDishCounter && (
         <div className={styles.dishCounter}>
-          <DishCounter dishId={id} />
+          <DishCounter dishId={id} dishName={name} />
         </div>
       )}
     </div>
