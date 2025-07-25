@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router';
-import commonStyles from '../../app/common.module.css';
+import commonStyles from '../../components/app/common.module.css';
 import { NavigationContext } from '../../components/contexts/navigation-context/navigation-context';
 import { useContext, useEffect } from 'react';
 import { DishContainer } from '../../components/dish/dish-container';

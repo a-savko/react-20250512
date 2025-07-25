@@ -1,6 +1,6 @@
 import { Outlet, useNavigate, useParams } from 'react-router';
 import { TabButton } from '../../../components/buttons/tab-button/tab-button';
-import commonStyles from '../../../app/common.module.css';
+import commonStyles from '../../../components/app/common.module.css';
 import { useContext, useEffect } from 'react';
 import { ROUTE_PATHS } from '../../../constants/router-constants';
 import classNames from 'classnames';

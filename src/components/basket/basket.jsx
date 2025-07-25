@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import { selectBasketItems } from '../../redux/entities/basket/slice';
 import styles from './basket.module.css';
 import { ReactSVG } from 'react-svg';
-import foodDeliverySVG from '../../../public/food-delivery-left.svg';
 import classNames from 'classnames';
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import { BasketItem } from '../basket-item/basket-item';
+
+const foodDeliverySVG = '/food-delivery-left.svg';
 
 export const Basket = () => {
   const { theme } = useContext(ThemeContext);

@@ -1,11 +1,12 @@
 import styles from './home-page.module.css';
 import { ReactSVG } from 'react-svg';
-import expressFoodDeliverySVG from '../../../public/express-food-delivery.svg';
 import { useContext } from 'react';
 import { ThemeContext } from '../../components/contexts/theme-context/theme-context';
 import classNames from 'classnames';
 import { OrderNowButton } from '../../components/buttons/order-now-button/order-now-button';
 import { ROUTE_PATHS } from '../../constants/router-constants';
+
+const expressFoodDeliverySVG = '/express-food-delivery.svg';
 
 export const HomePage = () => {
   const { theme } = useContext(ThemeContext);
