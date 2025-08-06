@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { BLUE } from './theme-constants';
 import { ThemeContext } from './theme-context';

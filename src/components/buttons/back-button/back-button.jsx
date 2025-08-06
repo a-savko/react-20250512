@@ -1,5 +1,7 @@
+'use client';
+
 import { useContext } from 'react';
-import { Link } from 'react-router';
+import Link from 'next/link';
 import styles from './back-button.module.css';
 import classNames from 'classnames';
 import { ThemeContext } from '../../contexts/theme-context/theme-context';
@@ -11,7 +13,7 @@ export const BackButton = ({ to = ROUTE_PATHS.Home, title }) => {
 
   return (
     <Link
-      to={to}
+      href={to}
       className={classNames(styles.backButton, theme)}
       aria-label={backTitle}
     >

@@ -1,3 +1,5 @@
+'use client';
+
 import { createContext } from "react";
 import { ROUTE_PATHS } from "../../../constants/router-constants";
 

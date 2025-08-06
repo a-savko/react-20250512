@@ -1,4 +1,6 @@
-import { Link } from 'react-router';
+'use client';
+
+import Link from 'next/link';
 import styles from './order-now-button.module.css';
 import classNames from 'classnames';
 import { useContext } from 'react';
@@ -11,11 +13,10 @@ export const OrderNowButton = ({ to = ROUTE_PATHS.Home, title }) => {
 
   return (
     <Link
-      to={to}
+      href={to}
       className={classNames(styles.orderButton, theme)}
       aria-label={linkTitle}
     >
       {linkTitle}
-    </Link>
-  );
-};
+    </Link>);
+  };

@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useState } from 'react';
 import { AccountContext } from './account-context';
 import { useGetUsersQuery } from '../../../redux/api';

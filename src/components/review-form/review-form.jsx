@@ -4,7 +4,7 @@ import { ClearButton } from '../buttons/clear-button/clear-button';
 import { Button } from '../buttons/default/button';
 
 import styles from './review-form.module.css';
-import globalStyles from '../../components/app/common.module.css';
+import globalStyles from '../../app/common.module.css';
 import { useContext } from 'react';
 import { AccountContext } from '../contexts/account-context/account-context';
 import { useEffect } from 'react';

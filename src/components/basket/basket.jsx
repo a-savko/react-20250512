@@ -1,3 +1,5 @@
+'use client';
+
 import { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectBasketItems } from '../../redux/entities/basket/slice';

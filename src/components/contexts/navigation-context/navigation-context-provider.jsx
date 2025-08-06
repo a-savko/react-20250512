@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useState } from 'react';
 import { NavigationContext, DEFAULT_BACK_BUTTON } from './navigation-context';
 

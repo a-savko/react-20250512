@@ -7,7 +7,7 @@ import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';
 import { ReviewContainer } from '../review-item/review-item-container';
 import { useAddReviewMutation, useUpdateReviewMutation } from '../../redux/api';
-import { useParams } from 'react-router';
+import { useParams } from 'next/navigation';
 import { ReviewContext } from '../contexts/review-context/review-context';
 
 export const Reviews = ({ reviews, showReviewForm = false }) => {

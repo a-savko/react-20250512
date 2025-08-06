@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { RestaurantTabButton } from '../buttons/restaurant-tab-button/restaurant-tab-button';
 import { NoData } from '../common/no-data';
 
-import commonStyles from '../../components/app/common.module.css';
+import commonStyles from '../../app/common.module.css';
 
 import { ThemeContext } from '../contexts/theme-context/theme-context';
 import classNames from 'classnames';

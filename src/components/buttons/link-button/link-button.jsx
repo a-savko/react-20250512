@@ -1,4 +1,6 @@
-import { Link } from 'react-router';
+'use client';
+
+import Link from 'next/link';
 import styles from './link-button.module.css';
 import classNames from 'classnames';
 import { useContext } from 'react';
@@ -11,7 +13,7 @@ export const LinkButton = ({ to = ROUTE_PATHS.Home, title }) => {
 
   return (
     <Link
-      to={to}
+      href={to}
       className={classNames(styles.linkButton, theme)}
       aria-label={linkTitle}
     >
