@@ -18,5 +18,6 @@ export const OrderNowButton = ({ to = ROUTE_PATHS.Home, title }) => {
       aria-label={linkTitle}
     >
       {linkTitle}
-    </Link>);
-  };
+    </Link>
+  );
+};
