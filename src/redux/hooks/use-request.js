@@ -1,3 +1,5 @@
+'use client';
+
 // should be removed for RTK query only
 import { useState } from "react";
 import { useEffect } from "react";
