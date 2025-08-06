@@ -1,14 +1,22 @@
-import { useNavigate, useParams } from 'react-router';
-import commonStyles from '../../components/app/common.module.css';
-import { NavigationContext } from '../../components/contexts/navigation-context/navigation-context';
-import { useContext, useEffect } from 'react';
-import { DishContainer } from '../../components/dish/dish-container';
-import { fillRouteId, ROUTE_PATHS } from '../../constants/router-constants';
-import { Loading } from '../../components/loading/loading';
-import { useGetDishByIdQuery, useGetRestaurantsQuery } from '../../redux/api';
-import { selectRestaurantFromResultByDishId } from '../../redux/entities/restaurant/selectors';
+"use client";
 
-export const DishPage = () => {
+import { useParams, notFound } from "next/navigation";
+import commonStyles from "../../../../common.module.css";
+import { NavigationContext } from "../../../../../components/contexts/navigation-context/navigation-context";
+import { useContext, useEffect } from "react";
+import { DishContainer } from "../../../../../components/dish/dish-container";
+import {
+  fillRouteId,
+  ROUTE_PATHS,
+} from "../../../../../constants/router-constants";
+import { Loading } from "../../../../../components/loading/loading";
+import {
+  useGetDishByIdQuery,
+  useGetRestaurantsQuery,
+} from "../../../../../redux/api";
+import { selectRestaurantFromResultByDishId } from "../../../../../redux/entities/restaurant/selectors";
+
+const DishPage = () => {
   const { id } = useParams();
 
   const { showBackButton, hideBackButton } = useContext(NavigationContext);
@@ -25,13 +33,11 @@ export const DishPage = () => {
       selectRestaurantFromResultByDishId(result, id),
   });
 
-  const navigate = useNavigate();
   useEffect(() => {
-    if (!dish && isDishError) {
-      navigate(ROUTE_PATHS.NotFound, { replace: true });
-      return;
+    if (!dish && (isDishError || !isDishLoading)) {
+      notFound();
     }
-  }, [dish, isDishError, navigate]);
+  }, [dish, isDishError, isDishLoading]);
 
   useEffect(() => {
     // Show back button when restaurant data is loaded
@@ -55,3 +61,5 @@ export const DishPage = () => {
     </div>
   );
 };
+
+export default DishPage;

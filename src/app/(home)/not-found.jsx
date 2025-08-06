@@ -1,11 +1,13 @@
-import styles from './not-found-page.module.css';
+'use client';
+
+import styles from './not-found.module.css';
 import { LinkButton } from '../../components/buttons/link-button/link-button.jsx';
 import { useContext } from 'react';
 import { ThemeContext } from '../../components/contexts/theme-context/theme-context.js';
 import classNames from 'classnames';
-import { ROUTE_PATHS } from '../../constants/router-constants';
+import { ROUTE_PATHS } from '../../constants/router-constants.js';
 
-export const NotFoundPage = () => {
+const NotFoundPage = () => {
   const { theme } = useContext(ThemeContext);
   return (
     <div className={classNames(styles.container, theme)}>
@@ -17,3 +19,5 @@ export const NotFoundPage = () => {
     </div>
   );
 };
+
+export default NotFoundPage;
