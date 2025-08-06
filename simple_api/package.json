@@ -1,5 +1,5 @@
 {
-  "name": "simple_api",
+  "name": "react-20250512-api",
   "version": "0.0.1",
   "description": "Simple API for food delivery application",
   "main": "server.js",
