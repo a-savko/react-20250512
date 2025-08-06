@@ -27,6 +27,8 @@ router.get("/dishes", (req, res, next) => {
     const restaurant = getById(restaurants)(restaurantId);
     if (restaurant) {
       result = restaurant.menu.map(getById(result));
+    } else {
+      result = null;
     }
   }
 

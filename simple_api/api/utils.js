@@ -1,8 +1,10 @@
 const config = require("../config");
 
+const NOT_FOUND_STATUS = 404;
+
 const reply = (res, body, timeout = config.responseDelay, status = 200) =>
   setTimeout(() => {
-    res.status(status).json(body);
+    res.status(body ? status : NOT_FOUND_STATUS).json(body);
   }, timeout);
 
 const getById = (entities) => (id) =>
