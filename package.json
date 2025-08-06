@@ -12,6 +12,7 @@
     "start-server": "node simple_api/server.js"
   },
   "dependencies": {
+    "@next/eslint-plugin-next": "^15.4.5",
     "@reduxjs/toolkit": "^2.8.2",
     "classnames": "^2.5.1",
     "cross-env": "^10.0.0",
