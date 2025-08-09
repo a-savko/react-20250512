@@ -1,7 +1,7 @@
-import { NoData } from '../common/no-data';
-import { Menu } from '../menu-list/menu-list';
-import { Loading } from '../loading/loading';
-import { useGetDishesQuery, useGetRestaurantByIdQuery } from '../../redux/api';
+import { NoData } from '@/components/common/no-data';
+import { Menu } from '@/components/menu-list/menu-list';
+import { Loading } from '@/components/loading/loading';
+import { useGetDishesQuery, useGetRestaurantByIdQuery } from '@/redux/api';
 
 export const RestaurantMenuContainer = ({ restaurantId }) => {
   const { data: restaurant, isLoading: isRestaurantLoading } =

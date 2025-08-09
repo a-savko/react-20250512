@@ -1,17 +1,14 @@
 'use client';
 
 import { useRouter, useParams, notFound } from 'next/navigation';
-import { TabButton } from '../../../../../components/buttons/tab-button/tab-button';
-import commonStyles from '../../../../common.module.css';
+import { TabButton } from '@/components/buttons/tab-button/tab-button';
+import commonStyles from '@/styles/common.module.css';
 import { useContext, useEffect } from 'react';
-import {
-  fillRouteId,
-  ROUTE_PATHS,
-} from '../../../../../constants/router-constants';
+import { fillRouteId, ROUTE_PATHS } from '@/constants/router-constants';
 import classNames from 'classnames';
-import { ThemeContext } from '../../../../../components/contexts/theme-context/theme-context';
-import { Loading } from '../../../../../components/loading/loading';
-import { useGetRestaurantByIdQuery } from '../../../../../redux/api';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
+import { Loading } from '@/components/loading/loading';
+import { useGetRestaurantByIdQuery } from '@/redux/api';
 
 const MENU_TAB = 'menu';
 const REVIEWS_TAB = 'reviews';

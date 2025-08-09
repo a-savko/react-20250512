@@ -2,7 +2,7 @@
 
 import { useContext } from 'react';
 import styles from './button.module.css';
-import { ThemeContext } from '../../contexts/theme-context/theme-context';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
 import classNames from 'classnames';
 
 export const Button = ({ children, onClick, disabled }) => {

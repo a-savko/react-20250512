@@ -1,4 +1,4 @@
-import { REQUEST_STATUSES } from "../redux/constants/statuses";
+import { REQUEST_STATUSES } from "@/redux/constants/statuses";
 
 export const isLoading = (requestStatus) =>
     requestStatus === REQUEST_STATUSES.Idle || requestStatus === REQUEST_STATUSES.Pending;

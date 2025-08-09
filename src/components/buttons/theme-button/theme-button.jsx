@@ -1,8 +1,11 @@
 'use client';
 
 import { useContext } from 'react';
-import { ThemeContext } from '../../contexts/theme-context/theme-context';
-import { BLUE, GREEN } from '../../contexts/theme-context/theme-constants';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
+import {
+  BLUE,
+  GREEN,
+} from '@/components/contexts/theme-context/theme-constants';
 import classNames from 'classnames';
 import styles from './theme-button.module.css';
 

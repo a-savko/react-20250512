@@ -1,5 +1,5 @@
-import { fillRouteId, ROUTE_PATHS } from '../../../constants/router-constants';
-import { TabButton } from '../tab-button/tab-button';
+import { fillRouteId, ROUTE_PATHS } from '@/constants/router-constants';
+import { TabButton } from '@/components/buttons/tab-button/tab-button';
 
 export const RestaurantTabButton = ({ id, name }) => {
   return (

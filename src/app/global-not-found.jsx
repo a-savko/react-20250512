@@ -1,8 +1,8 @@
 'use client';
 
 import styles from './global-not-found.module.css';
-import './global.css';
-import './themes/blue-theme.css';
+import '@/styles/global.css';
+import '@/styles/themes/blue-theme.css';
 
 const GlobalNotFound = () => {
   return (

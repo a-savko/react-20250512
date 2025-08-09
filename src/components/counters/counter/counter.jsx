@@ -1,5 +1,5 @@
 import styles from './counter.module.css';
-import { Button } from '../../buttons/default/button';
+import { Button } from '@/components/buttons/default/button';
 
 export const Counter = ({ count, onDecrement, onIncrement }) => {
   return (

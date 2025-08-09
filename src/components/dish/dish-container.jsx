@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { AccountContext } from '../contexts/account-context/account-context';
+import { AccountContext } from '@/components/contexts/account-context/account-context';
 import { Dish } from './dish';
-import { selectRestaurantFromResultByDishId } from '../../redux/entities/restaurant/selectors';
-import { useGetDishByIdQuery, useGetRestaurantsQuery } from '../../redux/api';
+import { selectRestaurantFromResultByDishId } from '@/redux/entities/restaurant/selectors';
+import { useGetDishByIdQuery, useGetRestaurantsQuery } from '@/redux/api';
 
 export const DishContainer = ({ id }) => {
   const { data: dish } = useGetDishByIdQuery(id);

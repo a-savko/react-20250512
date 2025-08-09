@@ -1,14 +1,14 @@
-import { NoData } from '../common/no-data';
-import { ReviewForm } from '../review-form/review-form';
+import { NoData } from '@/components/common/no-data';
+import { ReviewForm } from '@/components/review-form/review-form';
 
 import styles from './review-list.module.css';
 import { useContext } from 'react';
-import { ThemeContext } from '../contexts/theme-context/theme-context';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
 import classNames from 'classnames';
-import { ReviewContainer } from '../review-item/review-item-container';
-import { useAddReviewMutation, useUpdateReviewMutation } from '../../redux/api';
+import { ReviewContainer } from '@/components/review-item/review-item-container';
+import { useAddReviewMutation, useUpdateReviewMutation } from '@/redux/api';
 import { useParams } from 'next/navigation';
-import { ReviewContext } from '../contexts/review-context/review-context';
+import { ReviewContext } from '@/components/contexts/review-context/review-context';
 
 export const Reviews = ({ reviews, showReviewForm = false }) => {
   const { theme } = useContext(ThemeContext);

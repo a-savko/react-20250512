@@ -2,9 +2,9 @@ import { useContext } from 'react';
 import { NoData } from '../common/no-data';
 
 import styles from './menu-list.module.css';
-import { ThemeContext } from '../contexts/theme-context/theme-context';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
 import classNames from 'classnames';
-import { MenuItemContainer } from '../menu-item/menu-item-container';
+import { MenuItemContainer } from '@/components/menu-item/menu-item-container';
 
 export const Menu = ({ dishIds, restaurantId }) => {
   const { theme } = useContext(ThemeContext);

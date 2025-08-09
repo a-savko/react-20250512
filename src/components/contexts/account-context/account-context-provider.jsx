@@ -2,8 +2,8 @@
 
 import { useCallback, useState } from 'react';
 import { AccountContext } from './account-context';
-import { useGetUsersQuery } from '../../../redux/api';
-import { selectUserFromResultById } from '../../../redux/entities/user/selectors';
+import { useGetUsersQuery } from '@/redux/api';
+import { selectUserFromResultById } from '@/redux/entities/user/selectors';
 
 export const AccountContextProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);

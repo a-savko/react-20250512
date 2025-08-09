@@ -1,13 +1,13 @@
 'use client';
 
-import './global.css';
-import './themes/green-theme.css';
-import './themes/blue-theme.css';
-import { ThemeContextProvider } from '../components/contexts/theme-context/theme-context-provider';
-import { AccountContextProvider } from '../components/contexts/account-context/account-context-provider';
-import { NavigationContextProvider } from '../components/contexts/navigation-context/navigation-context-provider';
+import '@/styles/global.css';
+import '@/styles/themes/green-theme.css';
+import '@/styles/themes/blue-theme.css';
+import { ThemeContextProvider } from '@/components/contexts/theme-context/theme-context-provider';
+import { AccountContextProvider } from '@/components/contexts/account-context/account-context-provider';
+import { NavigationContextProvider } from '@/components/contexts/navigation-context/navigation-context-provider';
 import { Provider } from 'react-redux';
-import { store } from '../redux/store';
+import { store } from '@/redux/store';
 
 const RootLayout = ({ children }) => {
   return (

@@ -1,7 +1,7 @@
 import { ReactSVG } from 'react-svg';
 import styles from './rating.module.css';
 import { useContext } from 'react';
-import { ThemeContext } from '../contexts/theme-context/theme-context';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
 import classNames from 'classnames';
 
 const starRatingSelectedSVG = '/star-rating-selected.svg';

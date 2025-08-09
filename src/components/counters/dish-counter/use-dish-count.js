@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToBasket, removeFromBasket, selectBasketAmountById } from "../../../redux/entities/basket/slice";
+import { addToBasket, removeFromBasket, selectBasketAmountById } from "@/redux/entities/basket/slice";
 import { useCallback } from "react";
 
 export const useDishCount = (dishId, dishName, minCount = 0, maxCount = 5) => {

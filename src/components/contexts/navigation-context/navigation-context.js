@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext } from "react";
-import { ROUTE_PATHS } from "../../../constants/router-constants";
+import { ROUTE_PATHS } from "@/constants/router-constants";
 
 export const DEFAULT_BACK_BUTTON = {
     isHidden: true,

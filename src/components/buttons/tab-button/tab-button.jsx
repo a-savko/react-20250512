@@ -3,7 +3,7 @@
 import classNames from 'classnames';
 import styles from './tab-button.module.css';
 import { useContext } from 'react';
-import { ThemeContext } from '../../contexts/theme-context/theme-context';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 

@@ -1,9 +1,9 @@
 'use client';
 
 import { useContext, useEffect } from 'react';
-import { RestaurantMenuContainer } from '../../../../../../components/restaurant-menu/restaurant-menu';
-import { NavigationContext } from '../../../../../../components/contexts/navigation-context/navigation-context';
-import { ROUTE_PATHS } from '../../../../../../constants/router-constants';
+import { RestaurantMenuContainer } from '@/components/restaurant-menu/restaurant-menu';
+import { NavigationContext } from '@/components/contexts/navigation-context/navigation-context';
+import { ROUTE_PATHS } from '@/constants/router-constants';
 import { useParams } from 'next/navigation';
 
 const RestaurantMenuPage = () => {

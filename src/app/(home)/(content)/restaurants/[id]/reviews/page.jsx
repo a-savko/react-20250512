@@ -1,11 +1,11 @@
 'use client';
 
 import { useContext, useEffect } from 'react';
-import { RestaurantReviewsContainer } from '../../../../../../components/restaurant-reviews/restaurant-reviews';
-import { NavigationContext } from '../../../../../../components/contexts/navigation-context/navigation-context';
-import { ROUTE_PATHS } from '../../../../../../constants/router-constants';
+import { RestaurantReviewsContainer } from '@/components/restaurant-reviews/restaurant-reviews';
+import { NavigationContext } from '@/components/contexts/navigation-context/navigation-context';
+import { ROUTE_PATHS } from '@/constants/router-constants';
 import { useParams } from 'next/navigation';
-import { ReviewContextProvider } from '../../../../../../components/contexts/review-context/review-context-provider';
+import { ReviewContextProvider } from '@/components/contexts/review-context/review-context-provider';
 
 const RestaurantReviewsPage = () => {
   const { id } = useParams();

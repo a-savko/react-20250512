@@ -1,16 +1,16 @@
-import { Rating } from '../rating/rating';
+import { Rating } from '@/components/rating/rating';
 import { useReviewForm } from './use-review-form';
-import { ClearButton } from '../buttons/clear-button/clear-button';
-import { Button } from '../buttons/default/button';
+import { ClearButton } from '@/components/buttons/clear-button/clear-button';
+import { Button } from '@/components/buttons/default/button';
 
 import styles from './review-form.module.css';
-import globalStyles from '../../app/common.module.css';
+import globalStyles from '@/styles/common.module.css';
 import { useContext } from 'react';
-import { AccountContext } from '../contexts/account-context/account-context';
+import { AccountContext } from '@/components/contexts/account-context/account-context';
 import { useEffect } from 'react';
-import { Loading } from '../loading/loading';
-import { LOADING_VARIANTS } from '../loading/loading-constants';
-import { ReviewContext } from '../contexts/review-context/review-context';
+import { Loading } from '@/components/loading/loading';
+import { LOADING_VARIANTS } from '@/components/loading/loading-constants';
+import { ReviewContext } from '@/components/contexts/review-context/review-context';
 
 export const ReviewForm = ({
   onSubmitForm,

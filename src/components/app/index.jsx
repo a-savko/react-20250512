@@ -1,3 +1,5 @@
+// should be removed for Next only
+
 import { Layout } from '../_layout';
 
 import './global.css';

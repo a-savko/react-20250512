@@ -1,13 +1,13 @@
-import { Rating } from '../rating/rating';
-import { Button } from '../buttons/default/button';
+import { Rating } from '@/components/rating/rating';
+import { Button } from '@/components/buttons/default/button';
 
 import styles from './review-item.module.css';
-import globalStyles from '../../app/common.module.css';
+import globalStyles from '@/styles/common.module.css';
 import { useContext } from 'react';
-import { ThemeContext } from '../contexts/theme-context/theme-context';
-import { AccountContext } from '../contexts/account-context/account-context';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
+import { AccountContext } from '@/components/contexts/account-context/account-context';
 import classNames from 'classnames';
-import { ReviewContext } from '../contexts/review-context/review-context';
+import { ReviewContext } from '@/components/contexts/review-context/review-context';
 
 export const Review = ({ id, name, text, rating, userId }) => {
   const { theme } = useContext(ThemeContext);

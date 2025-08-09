@@ -3,10 +3,10 @@
 import styles from './page.module.css';
 import { ReactSVG } from 'react-svg';
 import { useContext } from 'react';
-import { ThemeContext } from '../../components/contexts/theme-context/theme-context';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
 import classNames from 'classnames';
-import { OrderNowButton } from '../../components/buttons/order-now-button/order-now-button';
-import { ROUTE_PATHS } from '../../constants/router-constants';
+import { OrderNowButton } from '@/components/buttons/order-now-button/order-now-button';
+import { ROUTE_PATHS } from '@/constants/router-constants';
 import ContextProviders from './context-providers';
 
 const expressFoodDeliverySVG = '/express-food-delivery.svg';

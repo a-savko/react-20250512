@@ -1,20 +1,14 @@
 'use client';
 
 import { useParams, notFound } from 'next/navigation';
-import commonStyles from '../../../../common.module.css';
-import { NavigationContext } from '../../../../../components/contexts/navigation-context/navigation-context';
+import commonStyles from '@/styles/common.module.css';
+import { NavigationContext } from '@/components/contexts/navigation-context/navigation-context';
 import { useContext, useEffect } from 'react';
-import { DishContainer } from '../../../../../components/dish/dish-container';
-import {
-  fillRouteId,
-  ROUTE_PATHS,
-} from '../../../../../constants/router-constants';
-import { Loading } from '../../../../../components/loading/loading';
-import {
-  useGetDishByIdQuery,
-  useGetRestaurantsQuery,
-} from '../../../../../redux/api';
-import { selectRestaurantFromResultByDishId } from '../../../../../redux/entities/restaurant/selectors';
+import { DishContainer } from '@/components/dish/dish-container';
+import { fillRouteId, ROUTE_PATHS } from '@/constants/router-constants';
+import { Loading } from '@/components/loading/loading';
+import { useGetDishByIdQuery, useGetRestaurantsQuery } from '@/redux/api';
+import { selectRestaurantFromResultByDishId } from '@/redux/entities/restaurant/selectors';
 
 const DishPage = () => {
   const { id } = useParams();
