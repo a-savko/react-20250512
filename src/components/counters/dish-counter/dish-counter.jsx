@@ -1,4 +1,4 @@
-import { Counter } from '../counter/counter';
+import { Counter } from '@/components/counters/counter/counter';
 import { useDishCount } from './use-dish-count';
 
 const MIN_COUNT = 0;

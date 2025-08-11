@@ -1,9 +1,9 @@
 import classNames from 'classnames';
-import { DishCounter } from '../counters/dish-counter/dish-counter';
+import { DishCounter } from '@/components/counters/dish-counter/dish-counter';
 
 import styles from './dish.module.css';
 import { useContext } from 'react';
-import { ThemeContext } from '../contexts/theme-context/theme-context';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
 
 export const Dish = ({
   id,

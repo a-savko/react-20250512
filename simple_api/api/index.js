@@ -3,8 +3,13 @@ const { nanoid } = require("nanoid");
 const { restaurants, products, reviews, users } = require("./mock");
 const { reply, getById, updateById } = require("./utils");
 
+router.use((req, res, next) => {
+  const timestamp = new Date().toISOString();
+  console.log(`[${timestamp}] ${req.method} ${req.url}`);
+  next();
+});
+
 router.get("/restaurants", (req, res, next) => {
-  console.log("request");
   reply(res, restaurants);
 });
 
@@ -27,6 +32,8 @@ router.get("/dishes", (req, res, next) => {
     const restaurant = getById(restaurants)(restaurantId);
     if (restaurant) {
       result = restaurant.menu.map(getById(result));
+    } else {
+      result = null;
     }
   }
 

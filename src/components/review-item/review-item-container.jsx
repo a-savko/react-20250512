@@ -1,6 +1,6 @@
-import { useGetUsersQuery } from '../../redux/api';
+import { useGetUsersQuery } from '@/redux/api';
 import { Review } from './review-item';
-import { selectUserFromResultById } from '../../redux/entities/user/selectors';
+import { selectUserFromResultById } from '@/redux/entities/user/selectors';
 
 export const ReviewContainer = ({ review }) => {
   const { id, userId, text, rating } = review;

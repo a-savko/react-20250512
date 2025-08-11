@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import { AccountContext } from '../contexts/account-context/account-context';
-import { Button } from '../buttons/default/button';
-import { ThemeButton } from '../buttons/theme-button/theme-button';
+import { AccountContext } from '@/components/contexts/account-context/account-context';
+import { Button } from '@/components/buttons/default/button';
+import { ThemeButton } from '@/components/buttons/theme-button/theme-button';
 import styles from './account.module.css';
-import { Loading } from '../loading/loading';
-import { LOADING_VARIANTS } from '../loading/loading-constants';
-import { useGetUsersQuery } from '../../redux/api';
+import { Loading } from '@/components/loading/loading';
+import { LOADING_VARIANTS } from '@/components/loading/loading-constants';
+import { useGetUsersQuery } from '@/redux/api';
 
 export const Account = () => {
   const { user, login, logOut, isAuthorized } = useContext(AccountContext);

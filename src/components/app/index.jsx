@@ -1,25 +1,27 @@
-import { Layout } from '../components/_layout';
+// should be removed for Next only
+
+import { Layout } from '../_layout';
 
 import './global.css';
 import './themes/green-theme.css';
 import './themes/blue-theme.css';
 
-import { ThemeContextProvider } from '../components/contexts/theme-context/theme-context-provider';
-import { AccountContextProvider } from '../components/contexts/account-context/account-context-provider';
+import { ThemeContextProvider } from '../contexts/theme-context/theme-context-provider';
+import { AccountContextProvider } from '../contexts/account-context/account-context-provider';
 import { Provider } from 'react-redux';
-import { store } from '../redux/store';
+import { store } from '../../redux/store';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
-import { DishPage } from '../pages/dish/dish-page';
-import { HomePage } from '../pages/home/home-page';
-import { RestaurantsPage } from '../pages/restaurants/restaurants-page';
-import { NotFoundPage } from '../pages/not-found/not-found-page';
-import { RestaurantPage } from '../pages/restaurants/restaurant/restaurant-page';
-import { NavigationContextProvider } from '../components/contexts/navigation-context/navigation-context-provider';
-import { RestaurantReviewsPage } from '../pages/restaurants/reviews/restaurant-reviews-page';
-import { RestaurantMenuPage } from '../pages/restaurants/menu/restaurant-menu-page';
-import { ROUTE_PATHS } from '../constants/router-constants';
+import { DishPage } from '../../pages/dish/dish-page';
+import { HomePage } from '../../pages/home/home-page';
+import { RestaurantsPage } from '../../pages/restaurants/restaurants-page';
+import { NotFoundPage } from '../../pages/not-found/not-found-page';
+import { RestaurantPage } from '../../pages/restaurants/restaurant/restaurant-page';
+import { NavigationContextProvider } from '../contexts/navigation-context/navigation-context-provider';
+import { RestaurantReviewsPage } from '../../pages/restaurants/reviews/restaurant-reviews-page';
+import { RestaurantMenuPage } from '../../pages/restaurants/menu/restaurant-menu-page';
+import { ROUTE_PATHS } from '../../constants/router-constants';
 
-export const App = () => {
+const App = () => {
   return (
     <Provider store={store}>
       <ThemeContextProvider>
@@ -77,3 +79,5 @@ export const App = () => {
     </Provider>
   );
 };
+
+export default App;

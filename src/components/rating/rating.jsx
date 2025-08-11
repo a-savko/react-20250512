@@ -1,11 +1,11 @@
 import { ReactSVG } from 'react-svg';
-import starRatingSelectedSVG from '/public/star-rating-selected.svg';
-import starRatingEmptySVG from '/public/star-rating-empty.svg';
-
 import styles from './rating.module.css';
 import { useContext } from 'react';
-import { ThemeContext } from '../contexts/theme-context/theme-context';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
 import classNames from 'classnames';
+
+const starRatingSelectedSVG = '/star-rating-selected.svg';
+const starRatingEmptySVG = '/star-rating-empty.svg';
 
 export const Rating = ({ rating, onClick = () => {}, maxRating = 5 }) => {
   const { theme } = useContext(ThemeContext);

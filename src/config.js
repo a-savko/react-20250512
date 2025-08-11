@@ -1,5 +1,8 @@
-export const CONFIG = {
+/* eslint-disable no-undef */
+const CONFIG = {
   api: {
-    host: import.meta.env.VITE_BACKEND_HOST,
+    host: process.env.NEXT_PUBLIC_BACKEND_HOST,
   },
 };
+
+export default CONFIG;

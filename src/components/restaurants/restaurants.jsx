@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { RestaurantTabButton } from '../buttons/restaurant-tab-button/restaurant-tab-button';
-import { NoData } from '../common/no-data';
+import { RestaurantTabButton } from '@/components/buttons/restaurant-tab-button/restaurant-tab-button';
+import { NoData } from '@/components/common/no-data';
 
-import commonStyles from '../../app/common.module.css';
+import commonStyles from '@/styles/common.module.css';
 
-import { ThemeContext } from '../contexts/theme-context/theme-context';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
 import classNames from 'classnames';
 
 export const Restaurants = ({ restaurants }) => {

@@ -1,9 +1,9 @@
-import { NoData } from '../common/no-data';
-import { Reviews } from '../review-list/review-list';
+import { NoData } from '@/components/common/no-data';
+import { Reviews } from '@/components/review-list/review-list';
 import { useContext } from 'react';
-import { AccountContext } from '../contexts/account-context/account-context';
-import { Loading } from '../loading/loading';
-import { useGetReviewsQuery, useGetUsersQuery } from '../../redux/api';
+import { AccountContext } from '@/components/contexts/account-context/account-context';
+import { Loading } from '@/components/loading/loading';
+import { useGetReviewsQuery, useGetUsersQuery } from '@/redux/api';
 
 export const RestaurantReviewsContainer = ({ restaurantId }) => {
   const { isAuthorized } = useContext(AccountContext);

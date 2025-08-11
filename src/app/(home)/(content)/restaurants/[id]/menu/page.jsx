@@ -1,10 +1,12 @@
-import { useContext, useEffect } from 'react';
-import { RestaurantMenuContainer } from '../../../components/restaurant-menu/restaurant-menu';
-import { NavigationContext } from '../../../components/contexts/navigation-context/navigation-context';
-import { ROUTE_PATHS } from '../../../constants/router-constants';
-import { useParams } from 'react-router';
+'use client';
 
-export const RestaurantMenuPage = () => {
+import { useContext, useEffect } from 'react';
+import { RestaurantMenuContainer } from '@/components/restaurant-menu/restaurant-menu';
+import { NavigationContext } from '@/components/contexts/navigation-context/navigation-context';
+import { ROUTE_PATHS } from '@/constants/router-constants';
+import { useParams } from 'next/navigation';
+
+const RestaurantMenuPage = () => {
   const { showBackButton, hideBackButton } = useContext(NavigationContext);
   const { id } = useParams();
 
@@ -18,3 +20,5 @@ export const RestaurantMenuPage = () => {
 
   return <RestaurantMenuContainer restaurantId={id} />;
 };
+
+export default RestaurantMenuPage;

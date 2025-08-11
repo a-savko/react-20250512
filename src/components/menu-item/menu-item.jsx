@@ -1,11 +1,11 @@
 import classNames from 'classnames';
-import { DishCounter } from '../counters/dish-counter/dish-counter';
+import { DishCounter } from '@/components/counters/dish-counter/dish-counter';
 
 import styles from './menu-item.module.css';
 import { useContext } from 'react';
-import { ThemeContext } from '../contexts/theme-context/theme-context';
-import { LinkButton } from '../buttons/link-button/link-button';
-import { fillRouteId, ROUTE_PATHS } from '../../constants/router-constants';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
+import { LinkButton } from '@/components/buttons/link-button/link-button';
+import { fillRouteId, ROUTE_PATHS } from '@/constants/router-constants';
 
 export const MenuItem = ({
   id,

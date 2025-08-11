@@ -1,17 +1,20 @@
-import { Outlet, useNavigate, useParams } from 'react-router';
-import { TabButton } from '../../../components/buttons/tab-button/tab-button';
-import commonStyles from '../../../app/common.module.css';
+'use client';
+
+import { useRouter, useParams, notFound } from 'next/navigation';
+import { TabButton } from '@/components/buttons/tab-button/tab-button';
+import commonStyles from '@/styles/common.module.css';
 import { useContext, useEffect } from 'react';
-import { ROUTE_PATHS } from '../../../constants/router-constants';
+import { fillRouteId, ROUTE_PATHS } from '@/constants/router-constants';
 import classNames from 'classnames';
-import { ThemeContext } from '../../../components/contexts/theme-context/theme-context';
-import { Loading } from '../../../components/loading/loading';
-import { useGetRestaurantByIdQuery } from '../../../redux/api';
+import { ThemeContext } from '@/components/contexts/theme-context/theme-context';
+import { Loading } from '@/components/loading/loading';
+import { useGetRestaurantByIdQuery } from '@/redux/api';
 
 const MENU_TAB = 'menu';
 const REVIEWS_TAB = 'reviews';
 
-export const RestaurantPage = () => {
+const RestaurantPage = ({ children }) => {
+  const router = useRouter();
   const { theme } = useContext(ThemeContext);
   const { id } = useParams();
 
@@ -21,14 +24,11 @@ export const RestaurantPage = () => {
     isError: isRestaurantError,
   } = useGetRestaurantByIdQuery(id);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     if (!restaurant && isRestaurantError) {
-      navigate(ROUTE_PATHS.NotFound, { replace: true });
-      return;
+      notFound();
     }
-  }, [isRestaurantError, navigate, restaurant]);
+  }, [isRestaurantError, router, restaurant]);
 
   if (isRestaurantLoading) {
     return <Loading />;
@@ -41,18 +41,18 @@ export const RestaurantPage = () => {
         <TabButton
           key={MENU_TAB}
           title={'Menu'}
-          href={ROUTE_PATHS.RestaurantMenu}
+          href={fillRouteId(ROUTE_PATHS.RestaurantMenu, id)}
         />
         <TabButton
           key={REVIEWS_TAB}
           title={'Reviews'}
-          href={ROUTE_PATHS.RestaurantReviews}
+          href={fillRouteId(ROUTE_PATHS.RestaurantReviews, id)}
         />
       </div>
 
-      <div>
-        <Outlet />
-      </div>
+      <div>{children}</div>
     </div>
   );
 };
+
+export default RestaurantPage;
